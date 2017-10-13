@@ -35,7 +35,6 @@
             android:fontFamily="@font/roboto_mono_bold"
             android:textColor="@color/black"
             android:textSize="16sp"
-            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/guide"
             app:layout_constraintStart_toEndOf="@+id/mIVExpandIcon"

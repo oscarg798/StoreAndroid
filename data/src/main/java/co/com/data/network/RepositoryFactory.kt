@@ -36,6 +36,13 @@ class RepositoryFactory private constructor() : IRepositoryFactory {
             return productRepository
         }
 
+    override val mSessionRepository: ISessionRepository
+        get() {
+            val sessionRepository= SessionRepository()
+            mRoutesComponent.inject(sessionRepository)
+            return sessionRepository
+        }
+
     private object Holder {
         val INSTANCE = RepositoryFactory()
     }

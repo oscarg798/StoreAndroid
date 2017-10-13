@@ -8,4 +8,6 @@ interface IRepositoryFactory {
     val mCategoriesRepository: ICategoryRepository
 
     val mProductRepository:IProductRepository
+
+    val mSessionRepository:ISessionRepository
 }

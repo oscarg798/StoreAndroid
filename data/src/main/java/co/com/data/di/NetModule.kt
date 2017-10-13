@@ -1,8 +1,6 @@
 package co.com.data.di
 
-import co.com.data.AppDatabase
-import co.com.data.DATE_FORMAT
-import co.com.data.TOKEN
+import co.com.data.*
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
@@ -51,14 +49,8 @@ class NetModule(private val mBaseUrl: String) {
             val headers = request.headers().values("@")
             val requestBuilder = request.newBuilder()
             if (headers.isNotEmpty()) {
-                /**val user = database.apiUserModel()
-                        .getUserLogged()
-
-                if(user!==null){
-                    requestBuilder.addHeader("Authorization", "Bearer ${user.token}")
-                            .removeHeader("@")
-                }**/
-                requestBuilder.addHeader("Authorization", "Bearer $TOKEN ")
+                val token = LocalStorage.instance.getData(TOKEN_KEY)
+                requestBuilder.addHeader("Authorization", "Bearer $token")
                         .removeHeader("@")
             }
 

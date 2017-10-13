@@ -2,6 +2,7 @@ package co.com.data.di
 
 import co.com.data.network.ICategoryRoute
 import co.com.data.network.IProductRoute
+import co.com.data.network.ISessionRoute
 
 import dagger.Module
 import dagger.Provides
@@ -19,6 +20,9 @@ class RoutesModule {
 
     @Provides
     fun provideProductRoute(retrofit: Retrofit):IProductRoute = retrofit.create(IProductRoute::class.java)
+
+    @Provides
+    fun provideSessionRoure(retrofit: Retrofit):ISessionRoute = retrofit.create(ISessionRoute::class.java)
 
 
 }

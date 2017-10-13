@@ -3,6 +3,7 @@ package co.com.data.di
 import co.com.data.network.CategoryRepository
 import co.com.data.network.ProductRepository
 import co.com.data.network.RepositoryFactory
+import co.com.data.network.SessionRepository
 import dagger.Component
 
 /**
@@ -17,4 +18,6 @@ interface RoutesComponent {
     fun inject(categoryRepository: CategoryRepository)
 
     fun inject(productRepository: ProductRepository)
+
+    fun inject(sessionRepository: SessionRepository)
 }
