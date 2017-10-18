@@ -1,6 +1,7 @@
 package co.com.data.network
 
 import co.com.data.APICategory
+import co.com.data.entities.DBCategory
 import io.reactivex.Observable
 
 /**
@@ -9,4 +10,8 @@ import io.reactivex.Observable
 interface ICategoryRepository {
 
     fun getCategories(): Observable<List<APICategory>>
+
+    fun saveCategories(categories:ArrayList<DBCategory>)
+
+    fun getCategory(uuid:String):DBCategory
 }

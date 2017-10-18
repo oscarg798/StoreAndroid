@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:elevation="5dp"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:elevation="5dp">
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
@@ -19,11 +19,12 @@
             app:layout_constraintGuide_percent="0.9" />
 
         <ImageView
-            android:id="@+id/mIVExpandIcon"
-            android:layout_width="wrap_content"
+            android:id="@+id/mIVCategoryAvatar"
+            android:layout_width="50dp"
             android:layout_height="0dp"
+            android:scaleType="fitCenter"
             android:src="@drawable/ic_expand_more"
-            app:layout_constraintBottom_toBottomOf="@+id/mTVCategoryName"
+            app:layout_constraintBottom_toBottomOf="@+id/mTVCategoryDescription"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -31,33 +32,30 @@
             android:id="@+id/mTVCategoryName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="16dp"
             android:fontFamily="@font/roboto_mono_bold"
             android:textColor="@color/black"
             android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/guide"
-            app:layout_constraintStart_toEndOf="@+id/mIVExpandIcon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/mIVCategoryAvatar"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="CATEGORY" />
 
+
         <TextView
-            android:id="@+id/mTVProductsCount"
+            android:id="@+id/mTVCategoryDescription"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:fontFamily="@font/roboto_mono_bold"
-            android:textColor="@color/white"
-            android:background="@drawable/item_count_background"
-            android:textSize="12sp"
-            android:padding="4dp"
-            android:gravity="center"
-            android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/mTVCategoryName"
+            android:layout_marginStart="16dp"
+            android:fontFamily="@font/roboto_mono"
+            android:maxLines="2"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="7" />
-
+            app:layout_constraintStart_toEndOf="@+id/mIVCategoryAvatar"
+            app:layout_constraintTop_toBottomOf="@+id/mTVCategoryName"
+            tools:text="This one is the product description" />
 
     </android.support.constraint.ConstraintLayout>
 

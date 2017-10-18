@@ -1,5 +1,6 @@
 package co.com.store.login
 
+import android.os.Bundle
 import co.com.core.User
 import co.com.core.use_cases.LoginUseCase
 import co.com.store.dashboard.IBaseView
@@ -18,7 +19,7 @@ class LoginActivityPresenter:ILoginActivityPresenter{
         mView = view as ILoginActivityView
     }
 
-    override fun onCreate() {
+    override fun onCreate(bundle:Bundle?) {
         mView?.initComponents()
     }
 

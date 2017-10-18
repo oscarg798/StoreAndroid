@@ -9,4 +9,6 @@ import io.reactivex.Observable
 interface IProductRepository{
 
     fun getProducts():Observable<List<APIProduct>>
+
+    fun getProductsByCategory(uuid:String):Observable<List<APIProduct>>
 }

@@ -14,4 +14,8 @@ class ProductRepository : IProductRepository {
     override fun getProducts(): Observable<List<APIProduct>> {
         return mProductRoute.getProducts()
     }
+
+    override fun getProductsByCategory(uuid: String): Observable<List<APIProduct>> {
+        return mProductRoute.getProductsByCategory(uuid)
+    }
 }

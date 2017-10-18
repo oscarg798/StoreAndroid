@@ -1,5 +1,6 @@
 package co.com.store.categories
 
+import co.com.core.Category
 import co.com.store.dashboard.IBaseView
 
 /**
@@ -7,11 +8,13 @@ import co.com.store.dashboard.IBaseView
  */
 interface ICategoryFragmentView : IBaseView {
 
-    fun showCategoriesAndProducts(categories: ArrayList<ViewCategory>)
+    fun showCategories(categories :ArrayList<Category>)
+
 
     fun showProgressBar()
 
     fun hideProgressBar()
 
     fun clearCategories()
+
 }

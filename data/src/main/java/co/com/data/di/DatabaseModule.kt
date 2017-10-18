@@ -11,8 +11,9 @@ import dagger.Provides
 /**
  * Created by oscargallon on 6/26/17.
  */
+@RouteScope
 @Module
-class DatabaseModule(val mContext: Context) {
+class DatabaseModule(private val mContext: Context) {
 
 
     @Provides

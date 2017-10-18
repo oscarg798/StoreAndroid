@@ -16,7 +16,7 @@ class LoginActivity : AppCompatActivity(), ILoginActivityView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         mPresenter.bind(this)
-        mPresenter.onCreate()
+        mPresenter.onCreate(null)
     }
 
     override fun initComponents() {

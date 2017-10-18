@@ -19,7 +19,7 @@ import java.util.concurrent.TimeUnit
  * be used in the app
  */
 @NetworkScope
-@Module
+@Module(includes = arrayOf(DatabaseModule::class))
 class NetModule(private val mBaseUrl: String) {
 
 

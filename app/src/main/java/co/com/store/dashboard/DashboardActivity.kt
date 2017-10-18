@@ -14,7 +14,7 @@ class DashboardActivity : AppCompatActivity(), IDashboardView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard)
         mPresenter.bind(this)
-        mPresenter.onCreate()
+        mPresenter.onCreate(null)
 
     }
 
@@ -27,5 +27,9 @@ class DashboardActivity : AppCompatActivity(), IDashboardView {
                 .replace(R.id.mFMDashboard, fragment)
                 .addToBackStack(tag)
                 .commitAllowingStateLoss()
+    }
+
+    override fun changeFragmentCallback(fragment:Fragment) {
+        mPresenter.changeFragmentCallback(fragment)
     }
 }

@@ -12,7 +12,7 @@ import com.thoughtbot.expandablerecyclerview.viewholders.GroupViewHolder
  */
 class CategoryViewHolder(mItemView: View) : GroupViewHolder(mItemView) {
 
-    val mIVExpandIcon = mItemView.findViewById<ImageView>(R.id.mIVExpandIcon)
+    val mIVCategoryAvatar = mItemView.findViewById<ImageView>(R.id.mIVCategoryAvatar)
     val mTVCategoryName = mItemView.findViewById<TextView>(R.id.mTVCategoryName)
-    val mTVProductsCount = mItemView.findViewById<TextView>(R.id.mTVProductsCount)
+    val mTVCategoryDescription = mItemView.findViewById<TextView>(R.id.mTVCategoryDescription)
 }

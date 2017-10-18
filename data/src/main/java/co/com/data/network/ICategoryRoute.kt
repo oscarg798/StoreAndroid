@@ -11,6 +11,5 @@ import retrofit2.http.Headers
 interface ICategoryRoute {
 
     @GET("category")
-    @Headers("@:auth")
     fun getCategories(): Observable<List<APICategory>>
 }

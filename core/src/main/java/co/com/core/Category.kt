@@ -7,10 +7,12 @@ import android.os.Parcelable
  * Created by oscarg798 on 10/11/17.
  */
 data class Category(val mName: String,
+                    val mDescription:String?,
                     val mAvatar: String?,
                     val mUuid: String) : Parcelable {
 
     constructor(source: Parcel) : this(
+            source.readString(),
             source.readString(),
             source.readString(),
             source.readString()
@@ -20,6 +22,7 @@ data class Category(val mName: String,
 
     override fun writeToParcel(dest: Parcel, flags: Int) = with(dest) {
         writeString(mName)
+        writeString(mDescription)
         writeString(mAvatar)
         writeString(mUuid)
     }

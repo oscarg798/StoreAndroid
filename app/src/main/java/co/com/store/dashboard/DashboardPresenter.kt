@@ -1,5 +1,7 @@
 package co.com.store.dashboard
 
+import android.app.Fragment
+import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
 import co.com.core.Category
@@ -24,7 +26,7 @@ class DashboardPresenter : IDashboardActivityPresenter {
         mView = view as IDashboardView
     }
 
-    override fun onCreate() {
+    override fun onCreate(bundle:Bundle?) {
         mView?.changeFragment(CategoriesFragment.newInstance(), null)
     }
 
@@ -34,5 +36,9 @@ class DashboardPresenter : IDashboardActivityPresenter {
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun changeFragmentCallback(fragment: Fragment) {
+        mView?.changeFragment(fragment, null)
     }
 }

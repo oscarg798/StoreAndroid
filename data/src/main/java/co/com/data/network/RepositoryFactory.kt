@@ -1,10 +1,8 @@
 package co.com.data.network
 
+import android.content.Context
 import co.com.data.BASE_URL
-import co.com.data.di.DaggerRoutesComponent
-import co.com.data.di.NetModule
-import co.com.data.di.RoutesComponent
-import co.com.data.di.RoutesModule
+import co.com.data.di.*
 
 
 /**
@@ -12,15 +10,9 @@ import co.com.data.di.RoutesModule
  */
 class RepositoryFactory private constructor() : IRepositoryFactory {
 
-    private var mRoutesComponent: RoutesComponent = DaggerRoutesComponent
-            .builder()
-            .netModule(NetModule(BASE_URL))
-            .routesModule(RoutesModule())
-            .build()
+    lateinit private var mRoutesComponent: RoutesComponent
 
-    init {
-        mRoutesComponent.inject(this)
-    }
+
 
     override val mCategoriesRepository: ICategoryRepository
         get() {
@@ -38,18 +30,29 @@ class RepositoryFactory private constructor() : IRepositoryFactory {
 
     override val mSessionRepository: ISessionRepository
         get() {
-            val sessionRepository= SessionRepository()
+            val sessionRepository = SessionRepository()
             mRoutesComponent.inject(sessionRepository)
             return sessionRepository
         }
+
+    fun injectContextAndInit(context: Context) {
+        mRoutesComponent = DaggerRoutesComponent
+                .builder()
+                .netModule(NetModule(BASE_URL))
+                .routesModule(RoutesModule())
+                .databaseModule(DatabaseModule(context))
+                .build()
+        mRoutesComponent.inject(this)
+    }
 
     private object Holder {
         val INSTANCE = RepositoryFactory()
     }
 
     companion object {
-        val instance:RepositoryFactory by lazy {
+        val instance: RepositoryFactory by lazy {
             Holder.INSTANCE
+
         }
     }
 }
