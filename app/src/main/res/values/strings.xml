@@ -100,4 +100,8 @@
         "when a user tries to pick up one of cards.\n\n"
     </string>
     <string name="action_settings">Settings</string>
+    <string name="address_label">Addresses</string>
+    <string name="edit_address_label">Add and edit your addresses</string>
+    <string name="log_out_label">LOG OUT</string>
+    <string name="profile_label">Profile</string>
 </resources>

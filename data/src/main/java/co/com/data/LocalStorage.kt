@@ -30,6 +30,10 @@ open class LocalStorage private constructor() {
         return mSharedPreference?.getString(key, null)
     }
 
+    fun removeData(key: String){
+        mSharedPreference?.edit()?.remove(key)?.apply()
+    }
+
     companion object {
         val instance by lazy {
             HOLDER.INSTANCE

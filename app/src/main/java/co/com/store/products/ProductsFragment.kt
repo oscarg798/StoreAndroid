@@ -43,8 +43,6 @@ class ProductsFragment : Fragment(), IProductFragmentView {
         mRVProducts?.setHasFixedSize(false)
         mRVProducts?.layoutManager = LinearLayoutManager(activity)
         mRVProducts?.adapter = ProductsAdapter(ArrayList())
-        mRVProducts?.addItemDecoration(RecyclerViewDividerItemDecoration(activity.resources.
-                getDrawable(R.drawable.horizontal_divider)))
         mPresenter.getProducts()
 
     }

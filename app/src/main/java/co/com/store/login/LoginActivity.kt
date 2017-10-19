@@ -10,7 +10,7 @@ import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity(), ILoginActivityView {
 
-    private val mPresenter:ILoginActivityPresenter = LoginActivityPresenter()
+    private val mPresenter: ILoginActivityPresenter = LoginActivityPresenter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,12 +32,12 @@ class LoginActivity : AppCompatActivity(), ILoginActivityView {
     }
 
     override fun loginSuccess() {
-        startActivity(Intent(this, DashboardActivity::class.java))
+        finish()
     }
 
     override fun showError(message: String) {
         mBTNSignIn?.let {
-            Snackbar.make(mBTNSignIn,message, Snackbar.LENGTH_LONG).show()
+            Snackbar.make(mBTNSignIn, message, Snackbar.LENGTH_LONG).show()
 
         }
     }

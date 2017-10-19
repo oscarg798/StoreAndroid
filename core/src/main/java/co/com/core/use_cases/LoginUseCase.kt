@@ -4,6 +4,7 @@ import co.com.core.User
 import co.com.data.LocalStorage
 import co.com.data.LoginRequest
 import co.com.data.TOKEN_KEY
+import co.com.data.entities.DBUser
 import co.com.data.network.RepositoryFactory
 import com.core.usecases.SingleUseCase
 import io.reactivex.Scheduler
@@ -21,7 +22,12 @@ class LoginUseCase(mSubscribeOnScheduler: Scheduler,
         return Single.fromObservable(RepositoryFactory.instance
                 .mSessionRepository.login(LoginRequest(params.first, params.second)))
                 .map {
+
+                    RepositoryFactory.instance.mSessionRepository
+                            .saveUser(DBUser(it.uuid, it.name, it.email, it.userType, it.token))
+
                     LocalStorage.instance.storeData(TOKEN_KEY, it.token)
+
                     User(it.uuid, it.name, it.email, it.userType)
                 }
     }

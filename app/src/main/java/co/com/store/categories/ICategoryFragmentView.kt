@@ -10,7 +10,6 @@ interface ICategoryFragmentView : IBaseView {
 
     fun showCategories(categories :ArrayList<Category>)
 
-
     fun showProgressBar()
 
     fun hideProgressBar()

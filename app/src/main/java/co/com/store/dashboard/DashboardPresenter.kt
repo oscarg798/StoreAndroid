@@ -8,7 +8,9 @@ import co.com.core.Category
 import co.com.core.use_cases.Product
 import co.com.core.use_cases.categories.GetCategoriesUseCase
 import co.com.core.use_cases.product.GetProductsUseCase
+import co.com.store.R
 import co.com.store.categories.CategoriesFragment
+import co.com.store.profile.UserProfileFragment
 import com.core.usecases.ISingleUseCase
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.observers.DisposableSingleObserver
@@ -26,7 +28,8 @@ class DashboardPresenter : IDashboardActivityPresenter {
         mView = view as IDashboardView
     }
 
-    override fun onCreate(bundle:Bundle?) {
+    override fun onCreate(bundle: Bundle?) {
+        mView?.initComponents()
         mView?.changeFragment(CategoriesFragment.newInstance(), null)
     }
 
@@ -35,7 +38,18 @@ class DashboardPresenter : IDashboardActivityPresenter {
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return when (item.itemId) {
+            R.id.navigation_home ->{
+                mView?.changeFragment(CategoriesFragment.newInstance(), null)
+                true
+            }
+            R.id.navigation_profile->{
+                mView?.changeFragment(UserProfileFragment.newInstance(), null)
+                true
+            }
+            else -> true
+        }
+
     }
 
     override fun changeFragmentCallback(fragment: Fragment) {
