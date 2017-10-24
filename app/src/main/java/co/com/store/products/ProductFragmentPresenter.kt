@@ -1,6 +1,7 @@
 package co.com.store.products
 
 import android.os.Bundle
+import co.com.core.ShoppingCart
 import co.com.core.use_cases.Product
 import co.com.core.use_cases.product.GetProductsByCategoryUseCase
 import co.com.data.CATEGORY_UUID_KEY
@@ -37,10 +38,10 @@ class ProductFragmentPresenter : IProductFragmentPresenter {
     override fun getProducts() {
         mCategoryUuid?.let {
             mView?.showProgressBar()
-            val iterator:ISingleUseCase<List<Product>, String> = GetProductsByCategoryUseCase(Schedulers.io(),
+            val iterator: ISingleUseCase<List<Product>, String> = GetProductsByCategoryUseCase(Schedulers.io(),
                     AndroidSchedulers.mainThread())
 
-            iterator.execute(mCategoryUuid!!, object:DisposableSingleObserver<List<Product>>(){
+            iterator.execute(mCategoryUuid!!, object : DisposableSingleObserver<List<Product>>() {
                 override fun onSuccess(t: List<Product>) {
                     mView?.showProducts(t)
                     mView?.hideProgressBar()
@@ -60,7 +61,9 @@ class ProductFragmentPresenter : IProductFragmentPresenter {
 
     }
 
-
+    override fun addOrRemoveProductFromShoppingCart(product: Product, quantity: Int) {
+        ShoppingCart.instance.addOrRemoveProductFromShoppingCart(product, quantity)
+    }
 
     override fun onDestroy() {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.

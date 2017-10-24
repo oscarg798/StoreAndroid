@@ -11,6 +11,7 @@ import co.com.core.use_cases.product.GetProductsUseCase
 import co.com.store.R
 import co.com.store.categories.CategoriesFragment
 import co.com.store.profile.UserProfileFragment
+import co.com.store.shopping_cart.ShoppingCartFragment
 import com.core.usecases.ISingleUseCase
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.observers.DisposableSingleObserver
@@ -45,6 +46,10 @@ class DashboardPresenter : IDashboardActivityPresenter {
             }
             R.id.navigation_profile->{
                 mView?.changeFragment(UserProfileFragment.newInstance(), null)
+                true
+            }
+            R.id.navigation_cart->{
+                mView?.changeFragment(ShoppingCartFragment.newInstance(), null)
                 true
             }
             else -> true

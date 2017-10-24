@@ -5,9 +5,11 @@ import co.com.store.dashboard.IBasePresenter
 /**
  * Created by oscarg798 on 10/18/17.
  */
-interface IProductFragmentPresenter:IBasePresenter {
+interface IProductFragmentPresenter:IBasePresenter, ProductCallbacks {
 
     fun getProducts()
 
     fun onViewCreated()
+
+
 }

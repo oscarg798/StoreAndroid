@@ -42,7 +42,7 @@ class ProductsFragment : Fragment(), IProductFragmentView {
         mSRLProducts?.isEnabled = false
         mRVProducts?.setHasFixedSize(false)
         mRVProducts?.layoutManager = LinearLayoutManager(activity)
-        mRVProducts?.adapter = ProductsAdapter(ArrayList())
+        mRVProducts?.adapter = ProductsAdapter(ArrayList(), mPresenter)
         mPresenter.getProducts()
 
     }
