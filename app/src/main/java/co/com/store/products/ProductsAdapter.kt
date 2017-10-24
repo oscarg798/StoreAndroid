@@ -1,6 +1,7 @@
 package co.com.store.products
 
 import android.support.v7.widget.RecyclerView
+import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import co.com.core.use_cases.Product
@@ -17,12 +18,37 @@ class ProductsAdapter(private val mProducts: ArrayList<Product>) : RecyclerView.
             holder.mTVProductName.text = mProducts[position].mName
             holder.mTVProductDescription.text = mProducts[position].mDescription
             holder.mTVPrice.text = "$${mProducts[position].mPrice}"
+            holder.mTVCount.text = "${0}"
             mProducts[position].mImages?.let {
                 if (mProducts[position].mImages!!.isNotEmpty()) {
                     Picasso.with(holder.itemView.context).load(mProducts[position].mImages!![0])
                             .into(holder.mIVProductAvatar)
                 }
             }
+
+            holder.mIVRemoveProductFromCart.setOnClickListener {
+                if (!TextUtils.isEmpty(holder.mTVCount.text)) {
+                    var count = Integer.parseInt(holder.mTVCount.text.toString())
+                    if (count > 0) {
+                        count--
+                        holder.mTVCount.text = "$count"
+                    }
+
+                }
+
+            }
+
+            holder.mIVAddProductToCart.setOnClickListener {
+                if (!TextUtils.isEmpty(holder.mTVCount.text)) {
+                    var count = Integer.parseInt(holder.mTVCount.text.toString())
+                    count++
+                    holder.mTVCount.text = "$count"
+                } else {
+                    holder.mTVCount.text = "${1}"
+                }
+
+            }
+
         }
     }
 
@@ -35,12 +61,12 @@ class ProductsAdapter(private val mProducts: ArrayList<Product>) : RecyclerView.
         return mProducts.size
     }
 
-    fun clear(){
+    fun clear() {
         mProducts.clear()
         notifyDataSetChanged()
     }
 
-    fun add(products:List<Product>){
+    fun add(products: List<Product>) {
         mProducts.addAll(products)
         notifyDataSetChanged()
     }

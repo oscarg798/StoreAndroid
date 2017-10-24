@@ -4,15 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginStart="16dp"
-    android:layout_marginEnd="16dp"
-    android:layout_marginTop="8dp"
     android:layout_marginBottom="8dp"
+    android:layout_marginEnd="16dp"
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="8dp"
     app:cardBackgroundColor="@color/grey_95">
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guide"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.6" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guide1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.8" />
 
 
         <ImageView
@@ -34,7 +48,7 @@
             android:fontFamily="@font/roboto_mono_bold"
             android:textColor="@color/black"
             android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/mIVRemoveProductFromCart"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/mIVProductAvatar"
             tools:text="Bacon" />
@@ -46,10 +60,10 @@
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:fontFamily="@font/roboto_mono"
-            android:maxLines="2"
             android:textColor="@color/black"
             android:textSize="12sp"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:gravity="fill_horizontal"
+            app:layout_constraintEnd_toStartOf="@+id/mIVRemoveProductFromCart"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/mTVProductName"
             tools:text="Hamburger with a nice bacon and other stuff" />
@@ -65,10 +79,47 @@
             android:paddingBottom="8dp"
             android:textColor="@color/black"
             android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/mIVRemoveProductFromCart"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/mTVProductDescription"
             tools:text="$12.000" />
+
+
+        <ImageView
+            android:id="@+id/mIVRemoveProductFromCart"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:background="@drawable/action_product_background"
+            android:scaleType="center"
+            android:src="@drawable/ic_remove"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/guide1"
+            app:layout_constraintStart_toEndOf="@+id/guide"
+            app:layout_constraintTop_toBottomOf="@+id/mIVProductAvatar" />
+
+        <ImageView
+            android:id="@+id/mIVAddProductToCart"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:background="@drawable/action_product_background"
+            android:scaleType="center"
+            android:src="@drawable/ic_add"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/guide1"
+            app:layout_constraintTop_toBottomOf="@+id/mIVProductAvatar" />
+
+        <TextView
+            android:id="@+id/mTVCount"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            tools:text="1"
+            android:gravity="center"
+            android:fontFamily="@font/roboto_mono"
+            app:layout_constraintTop_toBottomOf="@+id/mIVProductAvatar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/mIVAddProductToCart"
+            app:layout_constraintStart_toEndOf="@+id/mIVRemoveProductFromCart" />
 
 
     </android.support.constraint.ConstraintLayout>
