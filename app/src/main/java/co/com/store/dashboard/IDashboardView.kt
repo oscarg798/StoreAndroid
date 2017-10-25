@@ -10,4 +10,8 @@ interface IDashboardView : IBaseView,
         FragmentCallback {
 
     fun changeFragment(fragment: Fragment, tag: String?)
+
+    fun setShoppingCartBadge(count:Int)
+
+    fun setInitialFragment()
 }

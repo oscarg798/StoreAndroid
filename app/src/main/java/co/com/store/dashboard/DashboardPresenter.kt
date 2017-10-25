@@ -2,19 +2,13 @@ package co.com.store.dashboard
 
 import android.app.Fragment
 import android.os.Bundle
-import android.util.Log
 import android.view.MenuItem
-import co.com.core.Category
-import co.com.core.use_cases.Product
-import co.com.core.use_cases.categories.GetCategoriesUseCase
-import co.com.core.use_cases.product.GetProductsUseCase
+import co.com.core.ShoppingCart
 import co.com.store.R
 import co.com.store.categories.CategoriesFragment
 import co.com.store.profile.UserProfileFragment
 import co.com.store.shopping_cart.ShoppingCartFragment
-import com.core.usecases.ISingleUseCase
 import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.observers.DisposableSingleObserver
 import io.reactivex.schedulers.Schedulers
 
 /**
@@ -31,8 +25,19 @@ class DashboardPresenter : IDashboardActivityPresenter {
 
     override fun onCreate(bundle: Bundle?) {
         mView?.initComponents()
-        mView?.changeFragment(CategoriesFragment.newInstance(), null)
+        ShoppingCart.instance.mTotalItemsInCartObservable.observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe({ count ->
+                    mView?.setShoppingCartBadge(count)
+                })
+        mView?.setInitialFragment()
+        mView?.setShoppingCartBadge(ShoppingCart.instance.getTotalItemInCartInitialValue())
+
+
+
     }
+
+
 
     override fun onDestroy() {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
@@ -40,15 +45,15 @@ class DashboardPresenter : IDashboardActivityPresenter {
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.navigation_home ->{
+            R.id.navigation_home -> {
                 mView?.changeFragment(CategoriesFragment.newInstance(), null)
                 true
             }
-            R.id.navigation_profile->{
+            R.id.navigation_profile -> {
                 mView?.changeFragment(UserProfileFragment.newInstance(), null)
                 true
             }
-            R.id.navigation_cart->{
+            R.id.navigation_cart -> {
                 mView?.changeFragment(ShoppingCartFragment.newInstance(), null)
                 true
             }

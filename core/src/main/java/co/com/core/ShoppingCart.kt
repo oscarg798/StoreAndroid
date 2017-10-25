@@ -16,7 +16,11 @@ class ShoppingCart(private val mShoppingCartProducts: HashMap<String, Pair<Produ
 
     private var mTotal: String = "$0"
 
+    private var mTotalItemsInCart = 0
+
     val mTotalObservable: Subject<String> = PublishSubject.create()
+
+    val mTotalItemsInCartObservable: Subject<Int> = PublishSubject.create()
 
     fun addOrRemoveProductFromShoppingCart(product: Product, quantity: Int) {
         if (quantity > 0) {
@@ -28,28 +32,36 @@ class ShoppingCart(private val mShoppingCartProducts: HashMap<String, Pair<Produ
 
     }
 
-    fun calculteTotal() {
-        Single.create<Long> { emitter ->
+    private fun calculteTotal() {
+        Single.create<Pair<Int, Long>> { emitter ->
             val total = 0.toLong() + mShoppingCartProducts.values
                     .map {
                         it.first.mPrice.replace(".", "").toLong() *
                                 it.second
                     }
                     .sum()
-            emitter.onSuccess(total)
+
+            val quantity = 0 + mShoppingCartProducts.values
+                    .map { it.second }
+                    .sum()
+
+            emitter.onSuccess(Pair(quantity, total))
 
 
         }.subscribeOn(Schedulers.computation())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ value ->
                     val format = NumberFormat.getCurrencyInstance(Locale.US)
-                    mTotal = "${format.format(value)}."
+                    mTotal = "${format.format(value.second)}."
+                    mTotalItemsInCart = value.first
                     mTotalObservable.onNext(mTotal)
+                    mTotalItemsInCartObservable.onNext(value.first)
                 })
     }
 
     fun getTotalInitialValue(): String = mTotal
 
+    fun getTotalItemInCartInitialValue(): Int = mTotalItemsInCart
 
     fun getQuantityForProduct(productUuid: String): Int {
         if (mShoppingCartProducts.containsKey(productUuid)) {
