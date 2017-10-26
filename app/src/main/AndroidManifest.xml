@@ -23,17 +23,20 @@
         </activity>
 
         <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBd9eDQx1ZI2vPbsyXShu12fq9WEQRoAJQ"/>
+
+        <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
         <activity
             android:name=".login.LoginActivity"
-            android:noHistory="true">
-
-        </activity>
+            android:noHistory="true"></activity>
         <activity
             android:name=".ProductDetailActivity"
-            android:label="@string/title_activity_product_detail"></activity>
+            android:label="@string/title_activity_product_detail" />
+        <activity android:name=".add_location.AddLocationActivity"></activity>
     </application>
 
 </manifest>

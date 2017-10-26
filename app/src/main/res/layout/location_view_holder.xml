@@ -38,6 +38,16 @@
             app:layout_constraintTop_toBottomOf="@+id/mTVLocationName"
             tools:text="Calle 67 #50-50" />
 
+        <ImageView
+            android:layout_width="0dp"
+            android:id="@+id/mIVFavorite"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/ic_favorite_border"
+            android:layout_height="30dp" />
+
+
+
     </android.support.constraint.ConstraintLayout>
 
 </android.support.v7.widget.CardView>

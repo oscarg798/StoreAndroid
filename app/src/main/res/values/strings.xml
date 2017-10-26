@@ -106,4 +106,8 @@
     <string name="profile_label">Profile</string>
     <string name="cart_label">Cart</string>
     <string name="proceed_to_checkout_label">Proceed to Checkout</string>
+    <string name="address_hint">Address</string>
+    <string name="address_name_hint">Address Name</string>
+    <string name="address_indications">Address Indications</string>
+    <string name="add_address_label">Add Address</string>
 </resources>

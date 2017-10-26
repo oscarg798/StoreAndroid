@@ -2,6 +2,7 @@ package co.com.store.location
 
 
 import android.app.Fragment
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
@@ -10,6 +11,7 @@ import android.view.ViewGroup
 import co.com.core.Location
 
 import co.com.store.R
+import co.com.store.add_location.AddLocationActivity
 import kotlinx.android.synthetic.main.fragment_location.*
 import kotlinx.android.synthetic.main.fragment_products.*
 
@@ -43,12 +45,25 @@ class LocationFragment : Fragment(), ILocationFragmentView {
         mSRLLocation?.isEnabled = false
         mRVLocations?.setHasFixedSize(false)
         mRVLocations?.layoutManager = LinearLayoutManager(activity)
-        mRVLocations?.adapter = LocationAdapter(ArrayList())
+        mRVLocations?.adapter = LocationAdapter(ArrayList(), mPresenter)
+        mFABAddLocation?.setOnClickListener {
+            activity?.let {
+                activity.startActivity(Intent(activity, AddLocationActivity::class.java))
+            }
+        }
+
+    }
+
+    override fun updateLocationFavorite(uuid: String, favorite: Boolean) {
+        mRVLocations?.adapter?.let {
+            (mRVLocations.adapter as LocationAdapter)
+                    .updateLocationFavorite(uuid, favorite)
+        }
     }
 
     override fun showLocations(locations: List<Location>) {
         mRVLocations?.adapter?.let {
-            (mRVLocations.adapter as LocationAdapter).add(locations)
+            (mRVLocations.adapter as LocationAdapter).add(locations.sortedByDescending { it.mFavorite })
         }
     }
 
@@ -61,6 +76,6 @@ class LocationFragment : Fragment(), ILocationFragmentView {
     }
 
     companion object {
-        fun newInstance():LocationFragment = LocationFragment()
+        fun newInstance(): LocationFragment = LocationFragment()
     }
 }

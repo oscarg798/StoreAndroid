@@ -13,4 +13,6 @@ interface ILocationFragmentView:IBaseView{
     fun showProgressBar()
 
     fun hideProgressBar()
+
+    fun updateLocationFavorite(uuid: String, favorite: Boolean)
 }

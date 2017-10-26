@@ -9,6 +9,7 @@ import co.com.store.categories.CategoriesFragment
 import co.com.store.profile.UserProfileFragment
 import co.com.store.shopping_cart.ShoppingCartFragment
 import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.observers.DisposableObserver
 import io.reactivex.schedulers.Schedulers
 
 /**
@@ -27,8 +28,18 @@ class DashboardPresenter : IDashboardActivityPresenter {
         mView?.initComponents()
         ShoppingCart.instance.mTotalItemsInCartObservable.observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
-                .subscribe({ count ->
-                    mView?.setShoppingCartBadge(count)
+                .subscribeWith(object:DisposableObserver<Int>(){
+                    override fun onNext(t: Int) {
+                        mView?.setShoppingCartBadge(t)
+                    }
+
+                    override fun onComplete() {
+                    }
+
+                    override fun onError(e: Throwable) {
+                        e.printStackTrace()
+                    }
+
                 })
         mView?.setInitialFragment()
         mView?.setShoppingCartBadge(ShoppingCart.instance.getTotalItemInCartInitialValue())

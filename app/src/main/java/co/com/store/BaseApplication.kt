@@ -14,4 +14,6 @@ class BaseApplication : Application() {
         RepositoryFactory.instance.injectContextAndInit(this)
         LocalStorage.instance.create(this)
     }
+
+
 }

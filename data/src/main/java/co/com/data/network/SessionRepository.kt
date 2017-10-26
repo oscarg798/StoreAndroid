@@ -1,9 +1,6 @@
 package co.com.data.network
 
-import co.com.data.APILocation
-import co.com.data.APIUser
-import co.com.data.AppDatabase
-import co.com.data.LoginRequest
+import co.com.data.*
 import co.com.data.entities.DBLocation
 import co.com.data.entities.DBUser
 import io.reactivex.Observable
@@ -12,10 +9,10 @@ import javax.inject.Inject
 /**
  * Created by oscarg798 on 10/13/17.
  */
-class SessionRepository:ISessionRepository{
+class SessionRepository : ISessionRepository {
 
     @Inject
-    lateinit var mSessionRoute:ISessionRoute
+    lateinit var mSessionRoute: ISessionRoute
 
     @Inject
     lateinit var mDatabase: AppDatabase
@@ -28,7 +25,7 @@ class SessionRepository:ISessionRepository{
         mDatabase.apiUserModel().insertUser(dbUser)
     }
 
-    override fun getUserLogged(token:String): DBUser {
+    override fun getUserLogged(token: String): DBUser {
         return mDatabase.apiUserModel().getUserLogged(token)
     }
 
@@ -46,5 +43,17 @@ class SessionRepository:ISessionRepository{
 
     override fun getUserLocations(userUuid: String): Observable<List<APILocation>> {
         return mSessionRoute.getUserLocations(userUuid)
+    }
+
+    override fun makeLocationFavorite(uuid: String): Observable<APILocation> {
+        return mSessionRoute.makeLocationFavorite(uuid)
+    }
+
+    override fun removeLocationFromFavorite(uuid: String): Observable<APILocation> {
+        return mSessionRoute.removeLocationFromFavorite(uuid)
+    }
+
+    override fun addAddress(addAddressRequest: AddAddressRequest): Observable<APILocation> {
+        return mSessionRoute.addAddress(addAddressRequest)
     }
 }

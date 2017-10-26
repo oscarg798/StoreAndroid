@@ -1,4 +1,4 @@
-package co.com.core.use_cases
+package co.com.core.use_cases.location
 
 import co.com.core.Location
 import co.com.data.entities.DBLocation
@@ -22,18 +22,21 @@ class GetLocationUseCase(mSubscribeOnScheduler: Scheduler,
 
             emitter.onSuccess(dbUser)
         }.flatMap { dbUser ->
-            Single.fromObservable(RepositoryFactory.instance.mSessionRepository.getUserLocations(dbUser.uuid))
+            Single.fromObservable(RepositoryFactory.instance.mSessionRepository.
+                    getUserLocations(dbUser.uuid))
         }.map { apiLocations ->
 
             apiLocations.forEach { apiLocation ->
-                RepositoryFactory.instance.mSessionRepository.insertLocation(DBLocation(apiLocation.uuid, apiLocation.lat, apiLocation.lng,
-                        apiLocation.user, apiLocation.address,
-                        apiLocation.name))
+                RepositoryFactory.instance.mSessionRepository.
+                        insertLocation(DBLocation(apiLocation.uuid, apiLocation.lat, apiLocation.lng,
+                                apiLocation.user, apiLocation.address,
+                                apiLocation.name, apiLocation.favorite, apiLocation.indications))
             }
             apiLocations
                     .map { apiLocation ->
                         Location(apiLocation.uuid, apiLocation.lat, apiLocation.lng,
-                                apiLocation.user, apiLocation.address, apiLocation.name)
+                                apiLocation.user, apiLocation.address, apiLocation.name,
+                                apiLocation.favorite, apiLocation.indications)
 
                     }
 

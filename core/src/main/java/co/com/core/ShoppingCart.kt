@@ -3,6 +3,7 @@ package co.com.core
 import co.com.core.use_cases.Product
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 import io.reactivex.subjects.PublishSubject
 import io.reactivex.subjects.Subject
@@ -21,6 +22,8 @@ class ShoppingCart(private val mShoppingCartProducts: HashMap<String, Pair<Produ
     val mTotalObservable: Subject<String> = PublishSubject.create()
 
     val mTotalItemsInCartObservable: Subject<Int> = PublishSubject.create()
+
+
 
     fun addOrRemoveProductFromShoppingCart(product: Product, quantity: Int) {
         if (quantity > 0) {

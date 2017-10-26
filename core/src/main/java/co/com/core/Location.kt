@@ -6,4 +6,6 @@ package co.com.core
 data class Location(val mUuid: String, val mLat: Double,
                     val mLng: Double, val mUser: String,
                     val mAddress: String,
-                    val mName:String)
+                    val mName: String,
+                    var mFavorite: Boolean,
+                    val mIndications: String?)

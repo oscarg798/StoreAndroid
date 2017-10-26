@@ -9,3 +9,4 @@ const val DATABASE_NAME = "store.db"
 const val PREF_NAME = "com.store.preference"
 const val TOKEN_KEY= "TOKEN_KEY"
 const val CATEGORY_UUID_KEY = "categoryUuid"
+const val PLACES_REQUEST_CODE = 101

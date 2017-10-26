@@ -12,7 +12,7 @@ import co.com.data.entities.DBUser
 /**
  * Created by oscarg798 on 10/11/17.
  */
-@Database(entities = arrayOf(DBCategory::class, DBUser::class, DBLocation::class), version = 1)
+@Database(entities = arrayOf(DBCategory::class, DBUser::class, DBLocation::class), version = 3)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun apiCategoryModel(): DBCategoryDAO

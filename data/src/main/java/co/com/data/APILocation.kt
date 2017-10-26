@@ -6,4 +6,6 @@ package co.com.data
 data class APILocation(val uuid: String, val lat: Double,
                        val lng: Double, val user: String,
                        val address: String,
-                       val name:String)
+                       val name: String,
+                       val favorite: Boolean,
+                       val indications: String?)
