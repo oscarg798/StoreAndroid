@@ -2,6 +2,7 @@ package co.com.store.location
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import co.com.core.Location
 import co.com.store.R
@@ -11,6 +12,8 @@ import co.com.store.R
  */
 class LocationAdapter(private var mLocations: ArrayList<Location>,
                       private val mLocationAdapterCallbacks: LocationAdapterCallbacks) : RecyclerView.Adapter<LocationViewHolder>() {
+
+    private var mHideFavorites = false
 
     override fun onBindViewHolder(holder: LocationViewHolder?, position: Int) {
         holder?.let {
@@ -29,6 +32,10 @@ class LocationAdapter(private var mLocations: ArrayList<Location>,
                     mLocationAdapterCallbacks.makeLocationFavorite(mLocations[position].mUuid)
                 }
 
+            }
+
+            if(mHideFavorites){
+                holder.mIVFavorite?.visibility = View.GONE
             }
         }
     }
@@ -54,6 +61,10 @@ class LocationAdapter(private var mLocations: ArrayList<Location>,
         notifyDataSetChanged()
     }
 
+    fun hideFavorites(){
+        mHideFavorites = true
+        notifyDataSetChanged()
+    }
     fun add(locations: List<Location>) {
         mLocations.addAll(locations)
         notifyDataSetChanged()

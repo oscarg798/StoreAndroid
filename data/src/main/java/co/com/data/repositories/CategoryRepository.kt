@@ -1,8 +1,9 @@
-package co.com.data.network
+package co.com.data.repositories
 
 import co.com.data.APICategory
 import co.com.data.AppDatabase
 import co.com.data.entities.DBCategory
+import co.com.data.network.ICategoryRoute
 import io.reactivex.Observable
 import javax.inject.Inject
 

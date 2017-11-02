@@ -2,7 +2,7 @@ package co.com.store
 
 import android.app.Application
 import co.com.data.LocalStorage
-import co.com.data.network.RepositoryFactory
+import co.com.data.repositories.RepositoryFactory
 
 /**
  * Created by oscarg798 on 10/13/17.

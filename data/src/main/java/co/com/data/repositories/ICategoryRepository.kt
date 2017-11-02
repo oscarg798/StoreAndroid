@@ -1,4 +1,4 @@
-package co.com.data.network
+package co.com.data.repositories
 
 import co.com.data.APICategory
 import co.com.data.entities.DBCategory

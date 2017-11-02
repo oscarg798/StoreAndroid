@@ -110,4 +110,12 @@
     <string name="address_name_hint">Address Name</string>
     <string name="address_indications">Address Indications</string>
     <string name="add_address_label">Add Address</string>
+    <string name="title_activity_checkout">CheckoutActivity</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="suggested_address_label">Suggested Address</string>
+    <string name="all_address_label">All Address</string>
+    <string name="suggested_payment_method_label">Suggested Payment Method</string>
+    <string name="add_amount_hint">Add Amount</string>
+    <string name="continue_label">Continue</string>
+    <string name="with_how_much_will_you_pay_label">With how much will you pay?</string>
 </resources>

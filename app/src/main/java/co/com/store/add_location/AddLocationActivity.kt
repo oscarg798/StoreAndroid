@@ -21,6 +21,8 @@ class AddLocationActivity : AppCompatActivity(), IAddLocationActivityView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_location)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
         mPresenter.bind(this)
         mPresenter.onCreate(null)
     }
@@ -83,7 +85,6 @@ class AddLocationActivity : AppCompatActivity(), IAddLocationActivityView {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == PLACES_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
             mPresenter.getDataFromPlace(PlaceAutocomplete.getPlace(this, data))
-
 
         }
     }

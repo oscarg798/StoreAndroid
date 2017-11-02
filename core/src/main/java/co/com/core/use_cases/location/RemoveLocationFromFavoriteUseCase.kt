@@ -2,7 +2,7 @@ package co.com.core.use_cases.location
 
 import co.com.core.Location
 import co.com.data.entities.DBLocation
-import co.com.data.network.RepositoryFactory
+import co.com.data.repositories.RepositoryFactory
 import com.core.usecases.SingleUseCase
 import io.reactivex.Scheduler
 import io.reactivex.Single

@@ -72,6 +72,10 @@ class LocationFragmentPresenter : ILocationFragmentPresenter {
         })
     }
 
+    override fun onLocationClickListener(location: Location) {
+
+    }
+
     private fun getLocations() {
         mView?.showProgressBar()
         val iterator: ISingleUseCase<List<Location>, String> = GetLocationUseCase(Schedulers.io(),

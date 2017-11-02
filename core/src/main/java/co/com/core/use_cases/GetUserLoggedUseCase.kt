@@ -1,7 +1,7 @@
 package co.com.core.use_cases
 
 import co.com.core.User
-import co.com.data.network.RepositoryFactory
+import co.com.data.repositories.RepositoryFactory
 import com.core.usecases.SingleUseCase
 import io.reactivex.Scheduler
 import io.reactivex.Single

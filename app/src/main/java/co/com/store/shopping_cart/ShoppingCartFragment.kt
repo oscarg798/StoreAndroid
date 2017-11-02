@@ -1,6 +1,7 @@
 package co.com.store.shopping_cart
 
 import android.app.Fragment
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.text.Spannable
@@ -11,6 +12,7 @@ import android.view.View
 import android.view.ViewGroup
 import co.com.core.use_cases.Product
 import co.com.store.R
+import co.com.store.checkout.CheckoutActivity
 import kotlinx.android.synthetic.main.fragment_shopping_cart.*
 
 
@@ -40,6 +42,11 @@ class ShoppingCartFragment : Fragment(), IShoppingCartFragmentView {
         mRVShoppingCart?.setHasFixedSize(false)
         mRVShoppingCart?.layoutManager = LinearLayoutManager(activity)
         mRVShoppingCart?.adapter = ShoppingCartAdapter(ArrayList(), mPresenter)
+        mBTNCheckout?.setOnClickListener {
+            activity?.let {
+                activity.startActivity(Intent(activity, CheckoutActivity::class.java))
+            }
+        }
 
     }
 

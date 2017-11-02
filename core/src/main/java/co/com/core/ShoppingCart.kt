@@ -55,7 +55,7 @@ class ShoppingCart(private val mShoppingCartProducts: HashMap<String, Pair<Produ
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ value ->
                     val format = NumberFormat.getCurrencyInstance(Locale.US)
-                    mTotal = "${format.format(value.second)}."
+                    mTotal = format.format(value.second)
                     mTotalItemsInCart = value.first
                     mTotalObservable.onNext(mTotal)
                     mTotalItemsInCartObservable.onNext(value.first)

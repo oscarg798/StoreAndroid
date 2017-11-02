@@ -1,9 +1,9 @@
 package co.com.data.di
 
-import co.com.data.network.CategoryRepository
-import co.com.data.network.ProductRepository
-import co.com.data.network.RepositoryFactory
-import co.com.data.network.SessionRepository
+import co.com.data.repositories.CategoryRepository
+import co.com.data.repositories.ProductRepository
+import co.com.data.repositories.RepositoryFactory
+import co.com.data.repositories.SessionRepository
 import dagger.Component
 
 /**

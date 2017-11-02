@@ -1,4 +1,4 @@
-package co.com.data.network
+package co.com.data.repositories
 
 import android.content.Context
 import co.com.data.BASE_URL
@@ -11,7 +11,6 @@ import co.com.data.di.*
 class RepositoryFactory private constructor() : IRepositoryFactory {
 
     lateinit private var mRoutesComponent: RoutesComponent
-
 
 
     override val mCategoriesRepository: ICategoryRepository
@@ -34,6 +33,9 @@ class RepositoryFactory private constructor() : IRepositoryFactory {
             mRoutesComponent.inject(sessionRepository)
             return sessionRepository
         }
+
+    override val mPaymentMethodsRepository: IPaymentMethodsRepository
+        get() = PaymentMethodsRepository()
 
     fun injectContextAndInit(context: Context) {
         mRoutesComponent = DaggerRoutesComponent

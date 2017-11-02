@@ -1,8 +1,9 @@
-package co.com.data.network
+package co.com.data.repositories
 
 import co.com.data.*
 import co.com.data.entities.DBLocation
 import co.com.data.entities.DBUser
+import co.com.data.network.ISessionRoute
 import io.reactivex.Observable
 import javax.inject.Inject
 
