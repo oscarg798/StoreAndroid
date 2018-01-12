@@ -20,41 +20,12 @@ class ProductsAdapter(private val mProducts: ArrayList<Product>,
             holder.mTVProductName.text = mProducts[position].mName
             holder.mTVProductDescription.text = mProducts[position].mDescription
             holder.mTVPrice.text = "$${mProducts[position].mPrice}"
-            holder.mTVCount.text = "${ShoppingCart.instance.getQuantityForProduct(mProducts[position].mUuid)}"
             mProducts[position].mImages?.let {
                 if (mProducts[position].mImages!!.isNotEmpty()) {
                     Picasso.with(holder.itemView.context).load(mProducts[position].mImages!![0])
                             .into(holder.mIVProductAvatar)
                 }
             }
-
-            holder.mIVRemoveProductFromCart.setOnClickListener {
-                if (!TextUtils.isEmpty(holder.mTVCount.text)) {
-                    var count = Integer.parseInt(holder.mTVCount.text.toString())
-                    if (count > 0) {
-                        count--
-                        holder.mTVCount.text = "$count"
-                        mProductCallbacks.addOrRemoveProductFromShoppingCart(mProducts[position], count)
-                    }
-
-                }
-
-            }
-
-            holder.mIVAddProductToCart.setOnClickListener {
-                if (!TextUtils.isEmpty(holder.mTVCount.text)) {
-                    var count = Integer.parseInt(holder.mTVCount.text.toString())
-                    count++
-                    holder.mTVCount.text = "$count"
-                    mProductCallbacks.addOrRemoveProductFromShoppingCart(mProducts[position], count)
-                } else {
-                    holder.mTVCount.text = "${1}"
-                    mProductCallbacks.addOrRemoveProductFromShoppingCart(mProducts[position], 1)
-
-                }
-
-            }
-
         }
     }
 

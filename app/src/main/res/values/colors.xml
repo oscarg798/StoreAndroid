@@ -1,12 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#FF5722</color>
-    <color name="colorPrimaryDark">#E64A19</color>
-    <color name="colorAccent">#FFFFFF</color>
+    <color name="colorPrimary">#f36f32</color>
+    <color name="colorPrimaryDark">#F57C00</color>
+    <color name="colorAccent">#9E9E9E</color>
     <color name="black">#000000</color>
     <color name="white">#ffffff</color>
     <color name="grey_95">#f9f9f9</color>
     <color name="grey_2">#f5f5f5</color>
     <color name="silver">#D1D3D3</color>
     <color name="green">#78ea63</color>
+    <color name="categories_text_color">#979797</color>
+
+    <color name="snow">#FBFBFB</color>
+    <color name="aqua_squeeze">#41ECDB</color>
+    <color name="turquoise">#41ECDB</color>
+    <color name="dune">#51504E</color>
+      <color name="antique_white">#FBEBD2</color>
+      <color name="crusta">#F88F59</color>
 </resources>

@@ -14,5 +14,4 @@ class CategoryViewHolder(mItemView: View) : GroupViewHolder(mItemView) {
 
     val mIVCategoryAvatar = mItemView.findViewById<ImageView>(R.id.mIVCategoryAvatar)
     val mTVCategoryName = mItemView.findViewById<TextView>(R.id.mTVCategoryName)
-    val mTVCategoryDescription = mItemView.findViewById<TextView>(R.id.mTVCategoryDescription)
 }

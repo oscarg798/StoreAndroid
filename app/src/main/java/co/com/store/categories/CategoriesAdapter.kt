@@ -17,9 +17,7 @@ class CategoriesAdapter(private val mCategories: ArrayList<Category>,
 
     override fun onBindViewHolder(holder: CategoryViewHolder?, position: Int) {
         holder?.let {
-
             holder.mTVCategoryName.text = mCategories[position].mName
-            holder.mTVCategoryDescription.text = mCategories[position].mDescription
             Picasso.with(holder.itemView.context).load(mCategories[position].mAvatar)
                     .into(holder.mIVCategoryAvatar)
             holder.itemView.setOnClickListener {
@@ -34,17 +32,25 @@ class CategoriesAdapter(private val mCategories: ArrayList<Category>,
         return CategoryViewHolder(view)
     }
 
+    override fun getItemViewType(position: Int): Int {
+        return when (position % 2) {
+            0 -> 1
+            else -> 2
+        }
+    }
+
     override fun getItemCount(): Int = mCategories.size
 
     interface CategoryClickListener {
         fun onCategoryClicked(view: View, category: Category)
     }
 
-    fun clear(){
+    fun clear() {
         mCategories.clear()
         notifyDataSetChanged()
     }
-    fun add(categories:ArrayList<Category>){
+
+    fun add(categories: ArrayList<Category>) {
         mCategories.addAll(categories)
         notifyDataSetChanged()
     }

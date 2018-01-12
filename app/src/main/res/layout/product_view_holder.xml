@@ -4,9 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="8dp"
-    android:layout_marginEnd="16dp"
-    android:layout_marginStart="16dp"
+    app:contentPadding="16dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
+    android:background="@drawable/bg_product_item"
     android:layout_marginTop="8dp"
     app:cardBackgroundColor="@color/grey_95">
 
@@ -31,13 +32,29 @@
 
         <ImageView
             android:id="@+id/mIVProductAvatar"
-            android:layout_width="0dp"
-            android:layout_height="150dp"
-            android:scaleType="fitXY"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:scaleType="centerCrop"
             android:src="@drawable/ic_home_black_24dp"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/mTVPrice"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/montserrat_regular"
+            android:maxLines="2"
+            android:layout_marginBottom="8dp"
+            android:textColor="@color/categories_text_color"
+            android:textSize="14sp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/mIVProductAvatar"
+            app:layout_constraintTop_toTopOf="@+id/mIVProductAvatar"
+            tools:text="$12.000" />
 
         <TextView
             android:id="@+id/mTVProductName"
@@ -45,12 +62,12 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:fontFamily="@font/roboto_mono_bold"
-            android:textColor="@color/black"
+            android:fontFamily="@font/montserrat_bold"
+            android:textColor="@color/dune"
             android:textSize="14sp"
-            app:layout_constraintEnd_toStartOf="@+id/mIVRemoveProductFromCart"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/mIVProductAvatar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/mIVProductAvatar"
+            app:layout_constraintTop_toBottomOf="@+id/mTVPrice"
             tools:text="Bacon" />
 
         <TextView
@@ -59,67 +76,15 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:fontFamily="@font/roboto_mono"
-            android:textColor="@color/black"
-            android:textSize="12sp"
             android:gravity="fill_horizontal"
-            app:layout_constraintEnd_toStartOf="@+id/mIVRemoveProductFromCart"
-            app:layout_constraintStart_toStartOf="parent"
+            android:fontFamily="@font/montserrat_regular"
+            android:textColor="@color/categories_text_color"
+            android:textSize="14sp"
+            android:maxLines="2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/mIVProductAvatar"
             app:layout_constraintTop_toBottomOf="@+id/mTVProductName"
             tools:text="Hamburger with a nice bacon and other stuff" />
-
-        <TextView
-            android:id="@+id/mTVPrice"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:fontFamily="@font/roboto_mono"
-            android:maxLines="2"
-            android:paddingBottom="8dp"
-            android:textColor="@color/black"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toStartOf="@+id/mIVRemoveProductFromCart"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/mTVProductDescription"
-            tools:text="$12.000" />
-
-
-        <ImageView
-            android:id="@+id/mIVRemoveProductFromCart"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:background="@drawable/action_product_background"
-            android:scaleType="center"
-            android:src="@drawable/ic_remove"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/guide1"
-            app:layout_constraintStart_toEndOf="@+id/guide"
-            app:layout_constraintTop_toBottomOf="@+id/mIVProductAvatar" />
-
-        <ImageView
-            android:id="@+id/mIVAddProductToCart"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:background="@drawable/action_product_background"
-            android:scaleType="center"
-            android:src="@drawable/ic_add"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/guide1"
-            app:layout_constraintTop_toBottomOf="@+id/mIVProductAvatar" />
-
-        <TextView
-            android:id="@+id/mTVCount"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            tools:text="1"
-            android:gravity="center"
-            android:fontFamily="@font/roboto_mono"
-            app:layout_constraintTop_toBottomOf="@+id/mIVProductAvatar"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/mIVAddProductToCart"
-            app:layout_constraintStart_toEndOf="@+id/mIVRemoveProductFromCart" />
 
 
     </android.support.constraint.ConstraintLayout>

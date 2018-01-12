@@ -3,6 +3,7 @@ package co.com.store.categories
 import android.app.Fragment
 import android.content.Intent
 import android.os.Bundle
+import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
@@ -45,10 +46,8 @@ class CategoriesFragment : Fragment(), ICategoryFragmentView {
 
     override fun initComponents() {
         mRVCategories?.setHasFixedSize(false)
-        mRVCategories?.layoutManager = LinearLayoutManager(activity)
+        mRVCategories?.layoutManager = GridLayoutManager(activity, 2)
         mRVCategories?.adapter = CategoriesAdapter(ArrayList(), mPresenter)
-        mRVCategories?.addItemDecoration(RecyclerViewDividerItemDecoration(activity.resources.
-                getDrawable(R.drawable.horizontal_divider)))
         mSRLCategories?.setOnRefreshListener(mPresenter)
     }
 

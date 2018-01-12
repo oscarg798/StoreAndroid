@@ -16,7 +16,5 @@ class ProductViewHolder(mItemView: View) : ChildViewHolder(mItemView) {
     val mTVProductName = mItemView.findViewById<TextView>(R.id.mTVProductName)
     val mTVProductDescription = mItemView.findViewById<TextView>(R.id.mTVProductDescription)
     val mTVPrice = mItemView.findViewById<TextView>(R.id.mTVPrice)
-    val mIVRemoveProductFromCart = mItemView.findViewById<ImageView>(R.id.mIVRemoveProductFromCart)
-    val mIVAddProductToCart = mItemView.findViewById<ImageView>(R.id.mIVAddProductToCart)
-    val mTVCount = mItemView.findViewById<TextView>(R.id.mTVCount)
+
 }

@@ -2,61 +2,48 @@
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:layout_width="160dp"
     android:layout_height="wrap_content"
-    android:elevation="5dp">
+    android:layout_marginTop="16dp"
+    android:layout_marginStart="8dp"
+    android:background="@drawable/bg_categories_items"
+    app:cardCornerRadius="20dp">
+
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="16dp">
 
-        <android.support.constraint.Guideline
-            android:id="@+id/guide"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.9" />
 
         <ImageView
             android:id="@+id/mIVCategoryAvatar"
-            android:layout_width="50dp"
-            android:layout_height="0dp"
-            android:scaleType="fitCenter"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:padding="8dp"
+            android:scaleType="fitStart"
             android:src="@drawable/ic_expand_more"
-            app:layout_constraintBottom_toBottomOf="@+id/mTVCategoryDescription"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+
         <TextView
             android:id="@+id/mTVCategoryName"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:fontFamily="@font/roboto_mono_bold"
-            android:textColor="@color/black"
+            android:fontFamily="@font/montserrat_regular"
+            android:gravity="center"
+            android:maxLines="1"
+            android:textColor="@color/categories_text_color"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/mIVCategoryAvatar"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="CATEGORY" />
-
-
-        <TextView
-            android:id="@+id/mTVCategoryDescription"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:fontFamily="@font/roboto_mono"
-            android:maxLines="2"
-            android:textColor="@color/black"
-            android:textSize="14sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/mIVCategoryAvatar"
-            app:layout_constraintTop_toBottomOf="@+id/mTVCategoryName"
-            tools:text="This one is the product description" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mIVCategoryAvatar"
+            tools:text="Hamburguesa" />
 
     </android.support.constraint.ConstraintLayout>
+
 
 </android.support.v7.widget.CardView>
