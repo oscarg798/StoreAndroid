@@ -11,3 +11,5 @@ const val TOKEN_KEY = "TOKEN_KEY"
 const val CATEGORY_UUID_KEY = "categoryUuid"
 const val PLACES_REQUEST_CODE = 101
 const val CASH_PAYMENT_METHOD_TYPE = "Cash"
+const val PRODUCT = "product"
+const val PRODUCT_DETAIL = "productDetail"

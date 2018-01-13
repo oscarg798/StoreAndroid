@@ -23,8 +23,8 @@ class UserProfileFragmentPresenter : IUserProfileFragmentPresenter {
 
     private var mFragmentCallback: FragmentCallback? = null
 
-    override fun bind(view: IBaseView) {
-        mView = view as IUserProfileFragmentView
+    override fun bind(view: IUserProfileFragmentView) {
+        mView = view
     }
 
     override fun onCreate(bundle: Bundle?) {

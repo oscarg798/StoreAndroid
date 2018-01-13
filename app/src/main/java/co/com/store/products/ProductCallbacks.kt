@@ -9,3 +9,4 @@ interface ProductCallbacks {
 
     fun addOrRemoveProductFromShoppingCart(product: Product, quantity: Int)
 }
+

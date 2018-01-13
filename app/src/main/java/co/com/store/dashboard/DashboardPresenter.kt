@@ -4,8 +4,10 @@ import android.app.Fragment
 import android.os.Bundle
 import android.view.MenuItem
 import co.com.core.ShoppingCart
+import co.com.core.use_cases.Product
 import co.com.store.R
 import co.com.store.categories.CategoriesFragment
+import co.com.store.products.ProductsFragment
 import co.com.store.profile.UserProfileFragment
 import co.com.store.shopping_cart.ShoppingCartFragment
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -20,15 +22,16 @@ class DashboardPresenter : IDashboardActivityPresenter {
 
     private var mView: IDashboardView? = null
 
-    override fun bind(view: IBaseView) {
-        mView = view as IDashboardView
+
+    override fun bind(view: IDashboardView) {
+        mView = view
     }
 
     override fun onCreate(bundle: Bundle?) {
         mView?.initComponents()
         ShoppingCart.instance.mTotalItemsInCartObservable.observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
-                .subscribeWith(object:DisposableObserver<Int>(){
+                .subscribeWith(object : DisposableObserver<Int>() {
                     override fun onNext(t: Int) {
                         mView?.setShoppingCartBadge(t)
                     }
@@ -45,8 +48,8 @@ class DashboardPresenter : IDashboardActivityPresenter {
         mView?.setShoppingCartBadge(ShoppingCart.instance.getTotalItemInCartInitialValue())
 
 
-
     }
+
 
 
 

@@ -7,7 +7,7 @@ import co.com.store.utils.FragmentCallback
 /**
  * Created by oscarg798 on 10/13/17.
  */
-interface ICategoryFragmentPresenter : IBasePresenter, SwipeRefreshLayout.OnRefreshListener,
+interface ICategoryFragmentPresenter : IBasePresenter<ICategoryFragmentView>, SwipeRefreshLayout.OnRefreshListener,
         CategoriesAdapter.CategoryClickListener {
 
     fun onViewCreated()

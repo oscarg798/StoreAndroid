@@ -13,7 +13,7 @@ import com.squareup.picasso.Picasso
  * Created by oscarg798 on 10/18/17.
  */
 class ProductsAdapter(private val mProducts: ArrayList<Product>,
-                      private val mProductCallbacks: ProductCallbacks) : RecyclerView.Adapter<ProductViewHolder>() {
+                      private val mIOpenProductDetailCallback: IOpenProductDetailCallback) : RecyclerView.Adapter<ProductViewHolder>() {
 
     override fun onBindViewHolder(holder: ProductViewHolder?, position: Int) {
         holder?.let {
@@ -25,6 +25,10 @@ class ProductsAdapter(private val mProducts: ArrayList<Product>,
                     Picasso.with(holder.itemView.context).load(mProducts[position].mImages!![0])
                             .into(holder.mIVProductAvatar)
                 }
+            }
+
+            holder.itemView.setOnClickListener {
+                mIOpenProductDetailCallback.open(mProducts[position])
             }
         }
     }

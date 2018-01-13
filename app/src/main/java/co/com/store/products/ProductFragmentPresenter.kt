@@ -6,6 +6,7 @@ import co.com.core.use_cases.Product
 import co.com.core.use_cases.product.GetProductsByCategoryUseCase
 import co.com.data.CATEGORY_UUID_KEY
 import co.com.store.dashboard.IBaseView
+import co.com.store.products.detail.ProductDetailDialogFragment
 import com.core.usecases.ISingleUseCase
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.observers.DisposableSingleObserver
@@ -20,7 +21,7 @@ class ProductFragmentPresenter : IProductFragmentPresenter {
 
     private var mCategoryUuid: String? = null
 
-    override fun bind(view: IBaseView) {
+    override fun bind(view: IProductFragmentView) {
         mView = view as IProductFragmentView
     }
 
@@ -61,8 +62,8 @@ class ProductFragmentPresenter : IProductFragmentPresenter {
 
     }
 
-    override fun addOrRemoveProductFromShoppingCart(product: Product, quantity: Int) {
-        ShoppingCart.instance.addOrRemoveProductFromShoppingCart(product, quantity)
+    override fun open(product: Product) {
+        mView?.showProductDetail(ProductDetailDialogFragment.newInstance(product))
     }
 
     override fun onDestroy() {

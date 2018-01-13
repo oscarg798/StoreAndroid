@@ -14,8 +14,8 @@ class ShoppingCartFragmentPresenter : IShoppingCartFragmentPresenter {
 
     private var mView: IShoppingCartFragmentView? = null
 
-    override fun bind(view: IBaseView) {
-        mView = view as IShoppingCartFragmentView
+    override fun bind(view: IShoppingCartFragmentView) {
+        mView = view
     }
 
     override fun onCreate(bundle: Bundle?) {

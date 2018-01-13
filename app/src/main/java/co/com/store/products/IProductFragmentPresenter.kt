@@ -5,7 +5,8 @@ import co.com.store.dashboard.IBasePresenter
 /**
  * Created by oscarg798 on 10/18/17.
  */
-interface IProductFragmentPresenter:IBasePresenter, ProductCallbacks {
+interface IProductFragmentPresenter : IBasePresenter<IProductFragmentView>,
+        IOpenProductDetailCallback {
 
     fun getProducts()
 

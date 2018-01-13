@@ -1,0 +1,154 @@
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:minWidth="300dp"
+    android:minHeight="400dp"
+    android:padding="16dp"
+    tools:context="co.com.store.products.detail.ProductDetailDialogFragment">
+
+
+    <ImageView
+        android:id="@+id/mIVClose"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/ic_close"
+        android:tint="@color/colorPrimary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/mTVProductName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:gravity="center"
+        android:text="@string/hello_blank_fragment"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mIVClose"
+        tools:text="Product Name" />
+
+
+    <ImageView
+        android:id="@+id/mIVProductAvatar"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bg_product_item"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_home_black_24dp"
+        app:layout_constraintDimensionRatio="16:9"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mTVProductName" />
+
+    <TextView
+        android:id="@+id/mTVPrice"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/montserrat_regular"
+        android:gravity="center"
+        android:text="@string/hello_blank_fragment"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mIVProductAvatar"
+        tools:text="Price: $26.000" />
+
+    <TextView
+        android:id="@+id/mTVProductDescription"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_regular"
+        android:gravity="center"
+        android:paddingBottom="8dp"
+        android:paddingEnd="16dp"
+        android:paddingStart="16dp"
+        android:paddingTop="8dp"
+        android:textColor="@color/categories_text_color"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mTVPrice"
+        tools:text="Hamburger with a nice bacon and other stuff" />
+
+
+    <TextView
+        android:id="@+id/mTVQuantity"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_regular"
+        android:gravity="center"
+        android:text="@string/quantity_label"
+        android:textColor="@color/colorPrimary"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mTVProductDescription" />
+
+    <TextView
+        android:id="@+id/mTVActualQuantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_quantity"
+        android:fontFamily="@font/roboto_mono"
+        android:gravity="center"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mTVQuantity"
+        tools:text="1" />
+
+
+    <ImageView
+        android:id="@+id/mIVSubstract"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/action_product_background"
+        android:scaleType="center"
+        android:src="@drawable/ic_remove"
+        app:layout_constraintEnd_toStartOf="@+id/mTVActualQuantity"
+        app:layout_constraintTop_toTopOf="@+id/mTVActualQuantity" />
+
+    <ImageView
+        android:id="@+id/mIVAdd"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="16dp"
+        android:background="@drawable/action_product_background"
+        android:scaleType="center"
+        app:layout_constraintStart_toEndOf="@+id/mTVActualQuantity"
+        android:src="@drawable/ic_add"
+        app:layout_constraintTop_toTopOf="@+id/mTVActualQuantity" />
+
+
+    <Button
+        android:id="@+id/mBTNAddToCart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/sign_in_button_background"
+        android:fontFamily="@font/roboto_mono_bold"
+        android:gravity="center"
+        android:paddingBottom="8dp"
+        android:paddingEnd="48dp"
+        android:paddingStart="48dp"
+        android:paddingTop="8dp"
+        android:text="@string/log_out_label"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mIVAdd" />
+
+
+</android.support.constraint.ConstraintLayout>

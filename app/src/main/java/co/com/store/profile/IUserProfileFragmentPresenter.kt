@@ -6,7 +6,7 @@ import co.com.store.utils.FragmentCallback
 /**
  * Created by oscarg798 on 10/19/17.
  */
-interface IUserProfileFragmentPresenter:IBasePresenter{
+interface IUserProfileFragmentPresenter:IBasePresenter<IUserProfileFragmentView>{
 
     fun onViewCreated()
 

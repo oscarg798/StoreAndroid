@@ -21,8 +21,8 @@ class AddLocationActivityPresenter : IAddLocationActivityPresenter {
 
     private var mLatLng: LatLng? = null
 
-    override fun bind(view: IBaseView) {
-        mView = view as IAddLocationActivityView
+    override fun bind(view: IAddLocationActivityView) {
+        mView = view
     }
 
     override fun onCreate(bundle: Bundle?) {
@@ -39,7 +39,7 @@ class AddLocationActivityPresenter : IAddLocationActivityPresenter {
             val addAddressRequest = AddAddressRequest(address, name, indications, "",
                     mLatLng!!.latitude, mLatLng!!.longitude)
 
-            iterator.execute(addAddressRequest, object:DisposableSingleObserver<Location>(){
+            iterator.execute(addAddressRequest, object : DisposableSingleObserver<Location>() {
                 override fun onError(e: Throwable) {
                     mView?.hideProgressBar()
                     this.dispose()

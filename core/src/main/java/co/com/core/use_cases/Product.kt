@@ -6,7 +6,8 @@ import android.os.Parcelable
 /**
  * Created by oscarg798 on 10/11/17.
  */
-data class Product(val mUuid: String, val mName: String,
+data class Product(val mUuid: String,
+                   val mName: String,
                    val mDescription: String,
                    val mImages: List<String>?,
                    val mPrice: String,

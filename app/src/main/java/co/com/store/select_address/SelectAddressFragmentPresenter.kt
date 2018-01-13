@@ -22,8 +22,8 @@ class SelectAddressFragmentPresenter : ISelectAddressFragmentPresenter {
 
     private var mCheckoutCallbacks: ICheckoutCallbacks? = null
 
-    override fun bind(view: IBaseView) {
-        mView = view as ISelectedAddressFragmentView
+    override fun bind(view: ISelectedAddressFragmentView) {
+        mView = view
     }
 
     override fun onCreate(bundle: Bundle?) {

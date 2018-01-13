@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.View
 import co.com.core.Category
 import co.com.core.use_cases.categories.GetCategoriesUseCase
-import co.com.store.dashboard.IBaseView
 import co.com.store.products.ProductsFragment
 import co.com.store.utils.FragmentCallback
 import com.core.usecases.ISingleUseCase
@@ -21,8 +20,8 @@ class CategoriesFragmentPresenter : ICategoryFragmentPresenter {
 
     private var mFragmentCallback: FragmentCallback? = null
 
-    override fun bind(view: IBaseView) {
-        mView = view as ICategoryFragmentView
+    override fun bind(view: ICategoryFragmentView) {
+        mView = view
     }
 
     override fun bindFragmentCallback(callback: FragmentCallback) {

@@ -9,8 +9,11 @@ import android.view.View
 import android.view.ViewGroup
 import co.com.core.use_cases.Product
 import co.com.data.CATEGORY_UUID_KEY
+import co.com.data.PRODUCT
+import co.com.data.PRODUCT_DETAIL
 
 import co.com.store.R
+import co.com.store.products.detail.ProductDetailDialogFragment
 import co.com.store.utils.RecyclerViewDividerItemDecoration
 import kotlinx.android.synthetic.main.fragment_products.*
 
@@ -59,6 +62,19 @@ class ProductsFragment : Fragment(), IProductFragmentView {
 
     override fun hideProgressBar() {
         mSRLProducts?.isRefreshing = false
+    }
+
+
+
+    override fun showProductDetail(productDetailDialogFragment: ProductDetailDialogFragment) {
+        val ft = fragmentManager.beginTransaction()
+        val prev = fragmentManager.findFragmentByTag("PRODUCT_DETAIL")
+        if (prev != null) {
+            ft.remove(prev)
+        }
+        ft.addToBackStack(null)
+
+        productDetailDialogFragment.show(ft, PRODUCT_DETAIL)
     }
 
     companion object {

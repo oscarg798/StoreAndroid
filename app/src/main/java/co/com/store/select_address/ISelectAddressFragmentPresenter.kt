@@ -7,7 +7,7 @@ import co.com.store.location.LocationAdapterCallbacks
 /**
  * Created by oscarg798 on 11/2/17.
  */
-interface ISelectAddressFragmentPresenter : IBasePresenter, LocationAdapterCallbacks {
+interface ISelectAddressFragmentPresenter : IBasePresenter<ISelectedAddressFragmentView>, LocationAdapterCallbacks {
 
     fun setCheckoutCallbacks(checkoutCallbacks: ICheckoutCallbacks)
 }

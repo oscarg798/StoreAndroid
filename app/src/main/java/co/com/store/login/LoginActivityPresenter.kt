@@ -15,8 +15,8 @@ import io.reactivex.schedulers.Schedulers
 class LoginActivityPresenter:ILoginActivityPresenter{
     private var mView:ILoginActivityView? = null
 
-    override fun bind(view: IBaseView) {
-        mView = view as ILoginActivityView
+    override fun bind(view: ILoginActivityView) {
+        mView = view
     }
 
     override fun onCreate(bundle:Bundle?) {

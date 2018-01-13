@@ -6,7 +6,7 @@ import co.com.store.products.ProductCallbacks
 /**
  * Created by oscarg798 on 10/24/17.
  */
-interface IShoppingCartFragmentPresenter : IBasePresenter,ProductCallbacks {
+interface IShoppingCartFragmentPresenter : IBasePresenter<IShoppingCartFragmentView>,ProductCallbacks {
 
     fun onViewCreated()
 }

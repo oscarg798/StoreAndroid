@@ -7,7 +7,7 @@ import com.google.android.gms.location.places.Place
 /**
  * Created by oscarg798 on 10/26/17.
  */
-interface IAddLocationActivityPresenter : IBasePresenter {
+interface IAddLocationActivityPresenter : IBasePresenter<IAddLocationActivityView> {
 
     fun addLocation(name: String, address: String,
                     indications: String?)

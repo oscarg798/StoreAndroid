@@ -5,11 +5,11 @@ import android.os.Bundle
 /**
  * Created by oscarg798 on 10/11/17.
  */
-interface IBasePresenter{
+interface IBasePresenter<in T : IBaseView> {
 
-    fun bind(view:IBaseView)
+    fun bind(view: T)
 
-    fun onCreate(bundle:Bundle?)
+    fun onCreate(bundle: Bundle?)
 
     fun onDestroy()
 

@@ -8,8 +8,10 @@ import android.support.design.internal.BottomNavigationMenuView
 import android.support.design.widget.BottomNavigationView
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
+import co.com.core.use_cases.Product
 import co.com.store.BadgedDrawable
 import co.com.store.R
+import co.com.store.products.ProductCallbacks
 import kotlinx.android.synthetic.main.activity_dashboard.*
 
 class DashboardActivity : AppCompatActivity(), IDashboardView {
@@ -70,6 +72,7 @@ class DashboardActivity : AppCompatActivity(), IDashboardView {
                 .addToBackStack(tag)
                 .commitAllowingStateLoss()
     }
+
 
 
     override fun changeFragmentCallback(fragment: Fragment) {

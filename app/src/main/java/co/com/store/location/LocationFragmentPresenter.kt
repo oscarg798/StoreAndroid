@@ -20,8 +20,8 @@ class LocationFragmentPresenter : ILocationFragmentPresenter {
 
     private var mView: ILocationFragmentView? = null
 
-    override fun bind(view: IBaseView) {
-        mView = view as ILocationFragmentView
+    override fun bind(view: ILocationFragmentView) {
+        mView = view
     }
 
     override fun onCreate(bundle: Bundle?) {

@@ -22,8 +22,8 @@ class PaymentMethodFragmentPresenter : IPaymentMethodFragmentPresenter {
     private var mView: IPaymentMethodFragmentView? = null
 
 
-    override fun bind(view: IBaseView) {
-        mView = view as IPaymentMethodFragmentView
+    override fun bind(view: IPaymentMethodFragmentView) {
+        mView = view
     }
 
     private fun getPaymentMethods() {

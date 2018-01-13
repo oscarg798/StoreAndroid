@@ -24,7 +24,6 @@ class ShoppingCart(private val mShoppingCartProducts: HashMap<String, Pair<Produ
     val mTotalItemsInCartObservable: Subject<Int> = PublishSubject.create()
 
 
-
     fun addOrRemoveProductFromShoppingCart(product: Product, quantity: Int) {
         if (quantity > 0) {
             mShoppingCartProducts.put(product.mUuid, Pair(product, quantity))
@@ -76,6 +75,8 @@ class ShoppingCart(private val mShoppingCartProducts: HashMap<String, Pair<Produ
     fun getProductsFromShoppingCart(): List<Pair<Product, Int>> {
         return ArrayList(mShoppingCartProducts.values)
     }
+
+    fun isProductOnCart(productUuid: String): Boolean = mShoppingCartProducts.containsKey(productUuid)
 
     private object Holder {
         val INSTANCE: ShoppingCart = ShoppingCart(HashMap())
