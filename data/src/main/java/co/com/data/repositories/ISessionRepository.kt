@@ -27,6 +27,8 @@ interface ISessionRepository {
 
     fun getUserLocationsFromDB(userUuid: String): List<DBLocation>
 
+    fun getFavoriteLocation(userUuid: String): List<DBLocation>
+
     fun getUserLocations(userUuid: String): Observable<List<APILocation>>
 
     fun makeLocationFavorite(uuid: String): Observable<APILocation>

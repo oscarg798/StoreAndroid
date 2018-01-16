@@ -57,4 +57,8 @@ class SessionRepository : ISessionRepository {
     override fun addAddress(addAddressRequest: AddAddressRequest): Observable<APILocation> {
         return mSessionRoute.addAddress(addAddressRequest)
     }
+
+    override fun getFavoriteLocation(userUuid: String): List<DBLocation> {
+        return mDatabase.apiLocationModel().getFavoriteLocation(userUuid)
+    }
 }

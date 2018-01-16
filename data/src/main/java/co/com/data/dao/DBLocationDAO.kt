@@ -15,6 +15,9 @@ interface DBLocationDAO {
     @Query("SELECT * from location where location.user=:user")
     fun getLocations(user: String): List<DBLocation>
 
+    @Query("SELECT * FROM location where location.user=:user AND favorite=1")
+    fun getFavoriteLocation(user: String): List<DBLocation>
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertLocation(dbLocation: DBLocation)
 }

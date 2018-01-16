@@ -14,6 +14,7 @@ import io.reactivex.Single
 class GetLocationUseCase(mSubscribeOnScheduler: Scheduler,
                          mObserverOnScheduler: Scheduler) :
         SingleUseCase<List<Location>, String>(mSubscribeOnScheduler, mObserverOnScheduler) {
+
     override fun buildUseCase(params: String): Single<List<Location>> {
         return Single.create<DBUser> { emitter ->
             val dbUser = RepositoryFactory.instance.mSessionRepository

@@ -7,44 +7,52 @@ import android.view.Menu
 import android.view.MenuItem
 import co.com.core.Location
 import co.com.core.PaymentMethod
-import co.com.core.ShoppingCart
 import co.com.data.SELECT_ADDRESS
 import co.com.store.R
 import co.com.store.select_address.SelectAddressDialogFragment
 import kotlinx.android.synthetic.main.activity_checkout.*
-import java.text.NumberFormat
-import java.util.*
 
-class CheckoutActivity : AppCompatActivity(), ICheckoutCallbacks {
+class CheckoutActivity : AppCompatActivity(), ICheckoutCallbacks,
+        ICheckoutActivityView {
 
+
+    private val mPresenter: ICheckoutActivityPresenter = CheckoutActivityPresenter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_checkout)
-        initComponents()
-
-
+        mPresenter.bind(this)
     }
 
-    private fun initComponents() {
-
-        mTVAddress?.setOnClickListener { v ->
+    override fun initComponents() {
+        supportActionBar?.title = "Checkout"
+        mTVAddress?.setOnClickListener {
             showDialogFragment(SelectAddressDialogFragment.newInstance(), SELECT_ADDRESS)
         }
 
-        val total = ShoppingCart.instance.getTotalInitialValue()
-        mTVTotalPrice?.text = "Total: $total"
-        val deliverCost = 2000
-        mTVDeliverCost?.text = NumberFormat.getCurrencyInstance(Locale.US).format(deliverCost)
 
-
-        val totalCost = NumberFormat.getCurrencyInstance(Locale.US).parse(total).toInt() + deliverCost
-        mBTNPlaceOrder?.text = "Place order ${NumberFormat.getCurrencyInstance(Locale.US).format(totalCost)}"
     }
 
     override fun onAddressSelected(location: Location) {
         mTVAddress?.text = location.mAddress
 
+    }
+
+    override fun showBTNPlaceOrderText(text: String) {
+        mBTNPlaceOrder?.text = text
+    }
+
+    override fun showFavoriteLocation(address: String) {
+        mTVAddress?.text = address
+
+    }
+
+    override fun showTotalInCart(total: String) {
+        mTVTotalPrice?.text = "Total: $total"
+    }
+
+    override fun showDeliverCost(deliverCost: String) {
+        mTVDeliverCost?.text = deliverCost
     }
 
     fun showDialogFragment(dialog: DialogFragment, tag: String) {

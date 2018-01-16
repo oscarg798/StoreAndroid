@@ -3,9 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    app:cardCornerRadius="20dp"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="8dp"
-    android:layout_marginTop="8dp">
+    android:background="@drawable/bg_categories_items"
+    android:layout_margin="8dp">
 
 
     <android.support.constraint.ConstraintLayout
