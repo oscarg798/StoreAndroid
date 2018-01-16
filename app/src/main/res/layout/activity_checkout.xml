@@ -78,6 +78,7 @@
         app:layout_constraintStart_toEndOf="@+id/guide1"
         app:layout_constraintTop_toBottomOf="@+id/mVAddressDivider" />
 
+
     <TextView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -99,29 +100,52 @@
         app:layout_constraintTop_toBottomOf="@+id/mTVPaymentType" />
 
 
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/mTilAditionalInfo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="@string/aditional_instructions_hint"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mTVPaymentType">
+
+
+        <EditText
+            android:id="@+id/mETAditionalInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_regular"
+            android:padding="16dp" />
+
+    </android.support.design.widget.TextInputLayout>
+
     <TextView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/montserrat_bold"
-        android:padding="16dp"
+        android:padding="24dp"
         android:text="Total: "
         android:textColor="@color/categories_text_color"
         app:layout_constraintEnd_toStartOf="@+id/guide1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mTVPaymentType" />
+        app:layout_constraintTop_toBottomOf="@+id/mTilAditionalInfo" />
 
     <TextView
         android:id="@+id/mTVTotalPrice"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
         android:fontFamily="@font/montserrat_regular"
         android:gravity="end"
         android:padding="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/guide1"
-        app:layout_constraintTop_toBottomOf="@+id/mTVPaymentType"
+        app:layout_constraintTop_toBottomOf="@+id/mTilAditionalInfo"
         tools:text="$ 13.000" />
+
 
     <TextView
         android:layout_width="0dp"
@@ -147,16 +171,6 @@
         app:layout_constraintTop_toBottomOf="@+id/mTVTotalPrice"
         tools:text="$1.000" />
 
-
-    <EditText
-        android:layout_width="0dp"
-        android:id="@+id/mETAditionalInstructions"
-        android:layout_height="wrap_content"
-        android:hint="Aditional Instructions"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:minLines="3"
-        app:layout_constraintTop_toBottomOf="@+id/mTVDeliverCost" />
 
     <Button
         android:id="@+id/mBTNPlaceOrder"
