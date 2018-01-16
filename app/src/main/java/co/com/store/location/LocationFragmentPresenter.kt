@@ -101,6 +101,6 @@ class LocationFragmentPresenter : ILocationFragmentPresenter {
     }
 
     override fun onDestroy() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        mView = null
     }
 }

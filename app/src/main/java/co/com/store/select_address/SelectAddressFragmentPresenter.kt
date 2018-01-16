@@ -22,6 +22,8 @@ class SelectAddressFragmentPresenter : ISelectAddressFragmentPresenter {
 
     private var mCheckoutCallbacks: ICheckoutCallbacks? = null
 
+    private var mSuggestedAddress: Location? = null
+
     override fun bind(view: ISelectedAddressFragmentView) {
         mView = view
     }
@@ -34,6 +36,8 @@ class SelectAddressFragmentPresenter : ISelectAddressFragmentPresenter {
 
 
     private fun getLocations() {
+        mView?.showProgresBar()
+
         val iterator: ISingleUseCase<List<Location>, String> = GetLocationUseCase(Schedulers.io(),
                 AndroidSchedulers.mainThread())
 
@@ -41,6 +45,7 @@ class SelectAddressFragmentPresenter : ISelectAddressFragmentPresenter {
                 object : DisposableSingleObserver<List<Location>>() {
                     override fun onError(e: Throwable) {
                         e.printStackTrace()
+                        mView?.dismissDialog()
                         this.dispose()
                     }
 
@@ -51,6 +56,7 @@ class SelectAddressFragmentPresenter : ISelectAddressFragmentPresenter {
                         if (favoriteLocation.isNotEmpty()) {
                             mView?.showSuggestedAddress(favoriteLocation[0])
                             locations.remove(favoriteLocation[0])
+                            mSuggestedAddress = favoriteLocation[0]
                             mView?.showAddresses(locations)
                         } else if (locations.isNotEmpty()) {
                             mView?.showSuggestedAddress(locations[0])
@@ -58,7 +64,7 @@ class SelectAddressFragmentPresenter : ISelectAddressFragmentPresenter {
                             mView?.showAddresses(locations)
                         }
 
-
+                        mView?.hideProgresBar()
                         this.dispose()
                     }
 
@@ -79,8 +85,16 @@ class SelectAddressFragmentPresenter : ISelectAddressFragmentPresenter {
 
     }
 
+    override fun suggestedAddressClick() {
+        mSuggestedAddress?.let {
+            mCheckoutCallbacks?.onAddressSelected(mSuggestedAddress!!)
+            mView?.dismissDialog()
+        }
+    }
+
     override fun onLocationClickListener(location: Location) {
         mCheckoutCallbacks?.onAddressSelected(location)
+        mView?.dismissDialog()
     }
 
 

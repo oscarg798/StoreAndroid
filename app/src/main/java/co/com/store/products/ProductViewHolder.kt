@@ -16,5 +16,6 @@ class ProductViewHolder(mItemView: View) : ChildViewHolder(mItemView) {
     val mTVProductName = mItemView.findViewById<TextView>(R.id.mTVProductName)
     val mTVProductDescription = mItemView.findViewById<TextView>(R.id.mTVProductDescription)
     val mTVPrice = mItemView.findViewById<TextView>(R.id.mTVPrice)
+    val mTVQuantity = mItemView.findViewById<TextView>(R.id.mTVQuantity)
 
 }

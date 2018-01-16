@@ -13,6 +13,12 @@ interface ISelectedAddressFragmentView : IBaseView {
 
     fun showSuggestedAddress(location: Location)
 
+    fun dismissDialog()
+
+    fun showProgresBar()
+
+    fun hideProgresBar()
+
 
 
 }

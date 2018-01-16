@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:contentPadding="16dp"
-    android:layout_marginStart="8dp"
     android:layout_marginEnd="8dp"
-    android:background="@drawable/bg_product_item"
+    android:layout_marginStart="8dp"
     android:layout_marginTop="8dp"
-    app:cardBackgroundColor="@color/grey_95">
+    android:background="@drawable/bg_product_item"
+    app:cardBackgroundColor="@color/grey_95"
+    app:contentPadding="16dp">
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
@@ -43,14 +43,14 @@
             android:id="@+id/mTVPrice"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
             android:fontFamily="@font/montserrat_regular"
             android:maxLines="2"
-            android:layout_marginBottom="8dp"
             android:textColor="@color/categories_text_color"
             android:textSize="14sp"
-            android:layout_marginTop="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/mIVProductAvatar"
             app:layout_constraintTop_toTopOf="@+id/mIVProductAvatar"
@@ -76,15 +76,29 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:gravity="fill_horizontal"
             android:fontFamily="@font/montserrat_regular"
+            android:gravity="fill_horizontal"
+            android:maxLines="2"
             android:textColor="@color/categories_text_color"
             android:textSize="14sp"
-            android:maxLines="2"
+            android:ellipsize="end"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/mIVProductAvatar"
             app:layout_constraintTop_toBottomOf="@+id/mTVProductName"
             tools:text="Hamburger with a nice bacon and other stuff" />
+
+
+        <TextView
+            android:id="@+id/mTVQuantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_count"
+            android:fontFamily="@font/montserrat_regular"
+            android:padding="8dp"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="1" />
 
 
     </android.support.constraint.ConstraintLayout>

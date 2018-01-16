@@ -1,51 +1,61 @@
 package co.com.store.checkout
 
+import android.app.DialogFragment
 import android.os.Bundle
-import android.os.Handler
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentManager
-import android.support.v4.app.FragmentPagerAdapter
 import android.support.v7.app.AppCompatActivity
-import android.view.*
+import android.view.Menu
+import android.view.MenuItem
 import co.com.core.Location
 import co.com.core.PaymentMethod
+import co.com.core.ShoppingCart
+import co.com.data.SELECT_ADDRESS
 import co.com.store.R
-import co.com.store.payment_method.PaymentMethodFragment
-import co.com.store.select_address.SelectAddressFragment
+import co.com.store.select_address.SelectAddressDialogFragment
 import kotlinx.android.synthetic.main.activity_checkout.*
-import kotlinx.android.synthetic.main.fragment_checkout.view.*
+import java.text.NumberFormat
+import java.util.*
 
 class CheckoutActivity : AppCompatActivity(), ICheckoutCallbacks {
 
-    /**
-     * The [android.support.v4.view.PagerAdapter] that will provide
-     * fragments for each of the sections. We use a
-     * {@link FragmentPagerAdapter} derivative, which will keep every
-     * loaded fragment in memory. If this becomes too memory intensive, it
-     * may be best to switch to a
-     * [android.support.v4.app.FragmentStatePagerAdapter].
-     */
-    private var mSectionsPagerAdapter: CheckoutPageAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_checkout)
-
-        // Create the adapter that will return a fragment for each of the three
-        // primary sections of the activity.
-        mSectionsPagerAdapter =
-                CheckoutPageAdapter(fragmentManager, arrayListOf(SelectAddressFragment.newInstance(),
-                        PaymentMethodFragment.newInstance()))
-
-        // Set up the ViewPager with the sections adapter.
-        container.adapter = mSectionsPagerAdapter
-        indicator?.setViewPager(container)
+        initComponents()
 
 
     }
 
+    private fun initComponents() {
+
+        mTVAddress?.setOnClickListener { v ->
+            showDialogFragment(SelectAddressDialogFragment.newInstance(), SELECT_ADDRESS)
+        }
+
+        val total = ShoppingCart.instance.getTotalInitialValue()
+        mTVTotalPrice?.text = "Total: $total"
+        val deliverCost = 2000
+        mTVDeliverCost?.text = NumberFormat.getCurrencyInstance(Locale.US).format(deliverCost)
+
+
+        val totalCost = NumberFormat.getCurrencyInstance(Locale.US).parse(total).toInt() + deliverCost
+        mBTNPlaceOrder?.text = "Place order ${NumberFormat.getCurrencyInstance(Locale.US).format(totalCost)}"
+    }
+
     override fun onAddressSelected(location: Location) {
-        container?.currentItem = 1
+        mTVAddress?.text = location.mAddress
+
+    }
+
+    fun showDialogFragment(dialog: DialogFragment, tag: String) {
+        val ft = fragmentManager.beginTransaction()
+        val prev = fragmentManager.findFragmentByTag(tag)
+        if (prev != null) {
+            ft.remove(prev)
+        }
+        ft.addToBackStack(null)
+
+        dialog.show(ft, tag)
     }
 
     override fun onPaymentMethodSelected(paymentMethod: PaymentMethod) {

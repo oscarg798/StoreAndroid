@@ -10,4 +10,6 @@ import co.com.store.location.LocationAdapterCallbacks
 interface ISelectAddressFragmentPresenter : IBasePresenter<ISelectedAddressFragmentView>, LocationAdapterCallbacks {
 
     fun setCheckoutCallbacks(checkoutCallbacks: ICheckoutCallbacks)
+
+    fun suggestedAddressClick()
 }

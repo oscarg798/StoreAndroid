@@ -16,4 +16,6 @@ interface IProductFragmentView : IBaseView {
     fun hideProgressBar()
 
     fun showProductDetail(productDetailDialogFragment: ProductDetailDialogFragment)
+
+    fun notifyDatasetHasChange()
 }

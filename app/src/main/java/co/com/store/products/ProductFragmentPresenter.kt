@@ -9,6 +9,7 @@ import co.com.store.dashboard.IBaseView
 import co.com.store.products.detail.ProductDetailDialogFragment
 import com.core.usecases.ISingleUseCase
 import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.observers.DisposableObserver
 import io.reactivex.observers.DisposableSingleObserver
 import io.reactivex.schedulers.Schedulers
 
@@ -22,7 +23,20 @@ class ProductFragmentPresenter : IProductFragmentPresenter {
     private var mCategoryUuid: String? = null
 
     override fun bind(view: IProductFragmentView) {
-        mView = view as IProductFragmentView
+        mView = view
+        ShoppingCart.instance.mTotalItemsInCartObservable.subscribe(object:DisposableObserver<Int>(){
+            override fun onError(e: Throwable) {
+                e.printStackTrace()
+
+            }
+
+            override fun onComplete() {
+            }
+
+            override fun onNext(t: Int) {
+                mView?.notifyDatasetHasChange()
+            }
+        })
     }
 
     override fun onCreate(bundle: Bundle?) {
@@ -67,6 +81,6 @@ class ProductFragmentPresenter : IProductFragmentPresenter {
     }
 
     override fun onDestroy() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        mView = null
     }
 }

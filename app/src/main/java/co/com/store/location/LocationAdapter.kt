@@ -19,6 +19,7 @@ class LocationAdapter(private var mLocations: ArrayList<Location>,
         holder?.let {
             holder.mTVLocationAdress.text = mLocations[position].mAddress
             holder.mTVLocationName.text = mLocations[position].mName
+
             holder.mIVFavorite.setImageDrawable(if (mLocations[position].mFavorite)
                 holder.mIVFavorite.context.resources
                         .getDrawable(R.drawable.ic_favorite) else
@@ -32,6 +33,10 @@ class LocationAdapter(private var mLocations: ArrayList<Location>,
                     mLocationAdapterCallbacks.makeLocationFavorite(mLocations[position].mUuid)
                 }
 
+            }
+
+            holder.itemView.setOnClickListener {
+                mLocationAdapterCallbacks.onLocationClickListener(mLocations[position])
             }
 
             if(mHideFavorites){

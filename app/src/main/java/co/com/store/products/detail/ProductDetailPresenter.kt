@@ -77,7 +77,6 @@ class ProductDetailPresenter : IProductDetailPresenter {
 
     }
 
-
     override fun addOrRemoveFromQuantity(add: Boolean) {
         when (add) {
             true -> mQuantity++

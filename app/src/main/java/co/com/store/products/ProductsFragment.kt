@@ -65,6 +65,10 @@ class ProductsFragment : Fragment(), IProductFragmentView {
     }
 
 
+    override fun notifyDatasetHasChange() {
+        (mRVProducts?.adapter as? ProductsAdapter)?.notifyChange()
+
+    }
 
     override fun showProductDetail(productDetailDialogFragment: ProductDetailDialogFragment) {
         val ft = fragmentManager.beginTransaction()

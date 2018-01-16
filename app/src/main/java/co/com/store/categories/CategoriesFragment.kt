@@ -1,19 +1,14 @@
 package co.com.store.categories
 
 import android.app.Fragment
-import android.content.Intent
 import android.os.Bundle
 import android.support.v7.widget.GridLayoutManager
-import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import co.com.core.Category
-import co.com.core.use_cases.Product
-import co.com.store.ProductDetailActivity
 import co.com.store.R
 import co.com.store.utils.FragmentCallback
-import co.com.store.utils.RecyclerViewDividerItemDecoration
 import kotlinx.android.synthetic.main.fragment_blank.*
 
 

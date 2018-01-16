@@ -6,31 +6,165 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
+    android:padding="16dp"
     tools:context="co.com.store.checkout.CheckoutActivity">
 
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/container"
+    <android.support.constraint.Guideline
+        android:id="@+id/guide1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <TextView
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_bold"
+        android:padding="8dp"
+        android:text="Address:"
+        android:textColor="@color/categories_text_color"
+        app:layout_constraintEnd_toStartOf="@+id/guide1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <me.relex.circleindicator.CircleIndicator
-        android:id="@+id/indicator"
+
+    <TextView
+        android:id="@+id/mTVAddress"
         android:layout_width="0dp"
-        android:layout_height="100dp"
-        android:layout_gravity="bottom"
-        app:ci_drawable="@drawable/ic_indicator"
-        app:ci_drawable_unselected="@drawable/ic_indicator_disable"
-        app:ci_height="16dp"
-        app:ci_margin="8dp"
-        app:ci_width="16dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:fontFamily="@font/montserrat_regular"
+        android:gravity="end"
+        android:padding="8dp"
+        android:text="@string/select_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/guide1"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/mVAddressDivider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/dune"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mTVAddress" />
+
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_bold"
+        android:padding="8dp"
+        android:text="@string/payment_type_label"
+        android:textColor="@color/categories_text_color"
+        app:layout_constraintEnd_toStartOf="@+id/guide1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mVAddressDivider" />
+
+    <TextView
+        android:id="@+id/mTVPaymentType"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:drawableEnd="@drawable/ic_cash"
+        android:drawablePadding="8dp"
+        android:fontFamily="@font/montserrat_regular"
+        android:gravity="end"
+        android:padding="8dp"
+        android:text="Cash"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/guide1"
+        app:layout_constraintTop_toBottomOf="@+id/mVAddressDivider" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_bold"
+        android:padding="8dp"
+        android:text="@string/payment_type_label"
+        android:textColor="@color/categories_text_color"
+        app:layout_constraintEnd_toStartOf="@+id/guide1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mVAddressDivider" />
+
+    <View
+        android:id="@+id/mVPaymenttypeDivider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/dune"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mTVPaymentType" />
+
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_bold"
+        android:padding="8dp"
+        android:text="Total: "
+        android:textColor="@color/categories_text_color"
+        app:layout_constraintEnd_toStartOf="@+id/guide1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mTVPaymentType" />
+
+    <TextView
+        android:id="@+id/mTVTotalPrice"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:fontFamily="@font/montserrat_regular"
+        android:gravity="end"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/guide1"
+        app:layout_constraintTop_toBottomOf="@+id/mTVPaymentType"
+        tools:text="$ 13.000" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_bold"
+        android:padding="8dp"
+        android:text="Deliver cost: "
+        android:textColor="@color/categories_text_color"
+        app:layout_constraintEnd_toStartOf="@+id/guide1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mTVTotalPrice" />
+
+    <TextView
+        android:id="@+id/mTVDeliverCost"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:fontFamily="@font/montserrat_regular"
+        android:gravity="end"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/guide1"
+        app:layout_constraintTop_toBottomOf="@+id/mTVTotalPrice"
+        tools:text="$1.000" />
+
+    <Button
+        android:id="@+id/mBTNPlaceOrder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/sign_in_button_background"
+        android:fontFamily="@font/roboto_mono_bold"
+        android:gravity="center"
+        android:paddingBottom="8dp"
+        android:paddingEnd="48dp"
+        android:paddingStart="48dp"
+        android:paddingTop="8dp"
+        android:textColor="@color/white"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="Place order $1000" />
 
 
 </android.support.constraint.ConstraintLayout>

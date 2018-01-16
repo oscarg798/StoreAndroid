@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:id="@+id/mSRLLogin"
     android:background="@color/white"
-
     tools:context="co.com.store.login.LoginActivity">
 
     <android.support.constraint.ConstraintLayout
