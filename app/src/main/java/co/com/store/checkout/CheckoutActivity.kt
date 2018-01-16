@@ -48,7 +48,7 @@ class CheckoutActivity : AppCompatActivity(), ICheckoutCallbacks,
     }
 
     override fun showTotalInCart(total: String) {
-        mTVTotalPrice?.text = "Total: $total"
+        mTVTotalPrice?.text = total
     }
 
     override fun showDeliverCost(deliverCost: String) {
