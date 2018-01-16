@@ -8,4 +8,5 @@ import android.arch.persistence.room.PrimaryKey
  */
 @Entity(tableName = "category")
 data class DBCategory(@PrimaryKey val uuid: String, val name: String, val avatar: String?,
-                      val description: String?)
+                      val description: String?,
+                      val store: String)

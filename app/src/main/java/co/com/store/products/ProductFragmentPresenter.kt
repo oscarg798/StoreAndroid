@@ -2,10 +2,9 @@ package co.com.store.products
 
 import android.os.Bundle
 import co.com.core.ShoppingCart
-import co.com.core.use_cases.Product
+import co.com.core.Product
 import co.com.core.use_cases.product.GetProductsByCategoryUseCase
 import co.com.data.CATEGORY_UUID_KEY
-import co.com.store.dashboard.IBaseView
 import co.com.store.products.detail.ProductDetailDialogFragment
 import com.core.usecases.ISingleUseCase
 import io.reactivex.android.schedulers.AndroidSchedulers

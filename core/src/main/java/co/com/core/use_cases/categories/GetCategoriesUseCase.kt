@@ -18,7 +18,8 @@ class GetCategoriesUseCase(mSubscribeOnScheduler: Scheduler,
         return Single.fromObservable(RepositoryFactory.instance.mCategoriesRepository.getCategories())
                 .map { apiCategories ->
                     apiCategories.map { apiCategory ->
-                        Category(apiCategory.name, apiCategory.description, apiCategory.avatar, apiCategory.uuid)
+                        Category(apiCategory.name, apiCategory.description, apiCategory.avatar, apiCategory.uuid,
+                                apiCategory.store)
                     }
                 }
     }

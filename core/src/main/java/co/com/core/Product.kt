@@ -1,4 +1,4 @@
-package co.com.core.use_cases
+package co.com.core
 
 import android.os.Parcel
 import android.os.Parcelable
@@ -11,8 +11,7 @@ data class Product(val mUuid: String,
                    val mDescription: String,
                    val mImages: List<String>?,
                    val mPrice: String,
-                   val mCategory: String,
-                   val mStore: String) : Parcelable {
+                   val mCategory: String) : Parcelable {
 
 
     constructor(source: Parcel) : this(
@@ -20,7 +19,6 @@ data class Product(val mUuid: String,
             source.readString(),
             source.readString(),
             source.createStringArrayList(),
-            source.readString(),
             source.readString(),
             source.readString()
     )
@@ -34,7 +32,6 @@ data class Product(val mUuid: String,
         writeStringList(mImages)
         writeString(mPrice)
         writeString(mCategory)
-        writeString(mStore)
     }
 
     companion object {

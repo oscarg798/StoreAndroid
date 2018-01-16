@@ -1,6 +1,6 @@
 package co.com.store.categories
 
-import co.com.core.use_cases.Product
+import co.com.core.Product
 import com.thoughtbot.expandablerecyclerview.models.ExpandableGroup
 
 /**

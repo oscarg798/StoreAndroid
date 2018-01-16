@@ -2,10 +2,9 @@ package co.com.store.products.detail
 
 import android.os.Bundle
 import co.com.core.ShoppingCart
-import co.com.core.use_cases.Product
+import co.com.core.Product
 import co.com.data.PRODUCT
 import co.com.store.R
-import co.com.store.products.ProductCallbacks
 
 /**
  * Created by oscarg798 on 1/12/18.

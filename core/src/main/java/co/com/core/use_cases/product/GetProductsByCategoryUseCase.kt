@@ -1,6 +1,6 @@
 package co.com.core.use_cases.product
 
-import co.com.core.use_cases.Product
+import co.com.core.Product
 import co.com.data.repositories.RepositoryFactory
 import com.core.usecases.SingleUseCase
 import io.reactivex.Scheduler
@@ -18,7 +18,7 @@ class GetProductsByCategoryUseCase(mSubscribeOnScheduler: Scheduler,
                 .map { apiProducts->
                     apiProducts.map {
                         Product(it.uuid, it.name, it.description, it.images,
-                                it.price, it.category, it.store)
+                                it.price, it.category)
                     }
                 })
     }

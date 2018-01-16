@@ -7,14 +7,12 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import co.com.core.use_cases.Product
+import co.com.core.Product
 import co.com.data.CATEGORY_UUID_KEY
-import co.com.data.PRODUCT
 import co.com.data.PRODUCT_DETAIL
 
 import co.com.store.R
 import co.com.store.products.detail.ProductDetailDialogFragment
-import co.com.store.utils.RecyclerViewDividerItemDecoration
 import kotlinx.android.synthetic.main.fragment_products.*
 
 

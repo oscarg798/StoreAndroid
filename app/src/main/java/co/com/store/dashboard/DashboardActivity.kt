@@ -1,17 +1,11 @@
 package co.com.store.dashboard
 
 import android.app.Fragment
-import android.graphics.Color
 import android.graphics.drawable.LayerDrawable
 import android.os.Bundle
-import android.support.design.internal.BottomNavigationMenuView
-import android.support.design.widget.BottomNavigationView
 import android.support.v7.app.AppCompatActivity
-import android.view.Menu
-import co.com.core.use_cases.Product
 import co.com.store.BadgedDrawable
 import co.com.store.R
-import co.com.store.products.ProductCallbacks
 import kotlinx.android.synthetic.main.activity_dashboard.*
 
 class DashboardActivity : AppCompatActivity(), IDashboardView {

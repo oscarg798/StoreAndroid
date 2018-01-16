@@ -9,9 +9,11 @@ import android.os.Parcelable
 data class Category(val mName: String,
                     val mDescription:String?,
                     val mAvatar: String?,
-                    val mUuid: String) : Parcelable {
+                    val mUuid: String,
+                    val mStore:String) : Parcelable {
 
     constructor(source: Parcel) : this(
+            source.readString(),
             source.readString(),
             source.readString(),
             source.readString(),
@@ -25,6 +27,7 @@ data class Category(val mName: String,
         writeString(mDescription)
         writeString(mAvatar)
         writeString(mUuid)
+        writeString(mStore)
     }
 
     companion object {

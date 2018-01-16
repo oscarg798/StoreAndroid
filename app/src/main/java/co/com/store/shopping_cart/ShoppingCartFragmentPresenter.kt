@@ -2,8 +2,7 @@ package co.com.store.shopping_cart
 
 import android.os.Bundle
 import co.com.core.ShoppingCart
-import co.com.core.use_cases.Product
-import co.com.store.dashboard.IBaseView
+import co.com.core.Product
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 

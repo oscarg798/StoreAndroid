@@ -4,10 +4,8 @@ import android.app.Fragment
 import android.os.Bundle
 import android.view.MenuItem
 import co.com.core.ShoppingCart
-import co.com.core.use_cases.Product
 import co.com.store.R
 import co.com.store.categories.CategoriesFragment
-import co.com.store.products.ProductsFragment
 import co.com.store.profile.UserProfileFragment
 import co.com.store.shopping_cart.ShoppingCartFragment
 import io.reactivex.android.schedulers.AndroidSchedulers

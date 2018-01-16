@@ -10,7 +10,7 @@ import android.text.style.ForegroundColorSpan
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import co.com.core.use_cases.Product
+import co.com.core.Product
 import co.com.store.R
 import co.com.store.checkout.CheckoutActivity
 import kotlinx.android.synthetic.main.fragment_shopping_cart.*

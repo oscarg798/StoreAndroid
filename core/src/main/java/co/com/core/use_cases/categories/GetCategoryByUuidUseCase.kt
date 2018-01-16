@@ -19,7 +19,7 @@ class GetCategoryByUuidUseCase(mSubscribeOnScheduler: Scheduler,
                     .mCategoriesRepository.getCategory(params)
 
             emitter.onSuccess(Category(dbCategory.name, dbCategory.description,
-                    dbCategory.avatar, dbCategory.uuid))
+                    dbCategory.avatar, dbCategory.uuid,dbCategory.store))
 
 
         }

@@ -1,12 +1,11 @@
 package co.com.store.products
 
 import android.support.v7.widget.RecyclerView
-import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import co.com.core.ShoppingCart
-import co.com.core.use_cases.Product
+import co.com.core.Product
 import co.com.store.R
 import com.squareup.picasso.Picasso
 

@@ -1,6 +1,6 @@
 package co.com.store.products
 
-import co.com.core.use_cases.Product
+import co.com.core.Product
 import co.com.store.dashboard.IBaseView
 import co.com.store.products.detail.ProductDetailDialogFragment
 
